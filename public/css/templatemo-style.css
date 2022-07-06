@@ -30,7 +30,7 @@ p {
 
 .primary-button a {
 	display: inline-block;
-	background-color: #f2745f;
+	background-color: #01a1ff;
 	color: #fff;
 	font-size: 13px;
 	text-transform: uppercase;
@@ -71,15 +71,20 @@ p {
 
 .header {
     width: 100%;
-    padding: 0;
+    padding: 20px 0px 0px 0px;
     z-index: 10000;
     transition: all 0.2s ease-in-out;
     background-color: #eaf0ff;  
     text-align: center;
 }
+hr{
+	border: 1px solid #fac447;
+	margin-bottom: -5px;
+}
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
     text-shadow: none;
+
 }
 
 .navbar-brand {
@@ -96,7 +101,7 @@ p {
 }
 
 #main-nav {
-	padding: 15px 0px;
+	padding: 5px 0px;
 	float: right;
     position:relative;
     left:-50%;
@@ -140,7 +145,7 @@ p {
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
 	background-color: #f2745f;
 }
-bootstrap.min.css:5
+
 .navbar-toggle {
     position: relative;
     float: right;
@@ -157,7 +162,7 @@ bootstrap.min.css:5
 
 .banner {
 	padding: 180px 0px;
-	background-image: url(../img/banner-bg.jpg);
+	background-image: url(../img/banner-new-bg.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
@@ -977,6 +982,31 @@ section.map {
 section.map #map {
 	height: 450px;
 }
+
+#nav-underline{
+		display: inline-block;
+		position: relative;
+		color: #0087ca;
+	  }
+	  
+#nav-underline:after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		transform: scaleX(0);
+		height: 2px;
+		bottom: 0;
+		left: 0;
+		background-color: #0087ca;
+		transform-origin: bottom right;
+		transition: transform 0.25s ease-out;
+	  }
+	  
+#nav-underline:hover:after {
+		transform: scaleX(1);
+		transform-origin: bottom left;
+	  }
+
 
 
 

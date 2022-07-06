@@ -18,17 +18,31 @@ https://templatemo.com/tm-507-victory
         <link rel="stylesheet" href="css/hero-slider.css">
         <link rel="stylesheet" href="css/owl-carousel.css">
         <link rel="stylesheet" href="css/templatemo-style.css">
+        <link rel="stylesheet" href="css/navdrop.css">
 
         <link href="https://fonts.googleapis.com/css?family=Spectral:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="js/navdrop.js"></script>
+        <style>
+            .nav-item-dropdown a:focus {
+            background-color: blue;
+            }
+
+        </style>
+        
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
     </head>
+
 
 <body>
     <div class="header">
         <div class="container">
-            <a href="#" class="navbar-brand scroll-top">Victory</a>
+            <img id="header-image"src="img/logo.png" href="#" width="150" height="90">
+            <hr>
             <nav class="navbar navbar-inverse" role="navigation">
                 <div class="navbar-header">
                     <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
@@ -41,10 +55,35 @@ https://templatemo.com/tm-507-victory
                 <!--/.navbar-header-->
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="/menu">Our Menus</a></li>
-                        <li><a href="blog.html">Blog Entries</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a id="nav-underline" href="index.html">Home</a></li>
+                        <li><a id="nav-underline" href="/menu">About</a></li>
+                        <li><a id="nav-underline" href="blog.html">Explore</a></li>
+                        <li><a id="nav-underline" href="contact.html">Partners</a></li>
+                        <li class="nav-item-dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="nav-underline" role="button" data-toggle="dropdown" >
+                            Start Up <i class="fa fa-caret-down"></i>
+                            </a>
+                            <div class="dropdown-menu"  aria-labelledby="navbarDropdown1">
+                                <a class="dropdown-item" href="/registerStartup">Register Startup</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">View Session</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Get Reports</a>
+                            </div>
+                        </li>
+                        <li><a id="nav-underline" href="/login">Meeting Requests</a></li>
+                        <li class="nav-item dropdown" style="">
+                            <a class="nav-link-dropdown-toggle" href="#" id="nav-underline" role="button" data-toggle="dropdown" >
+                            Admin <i class="fa fa-caret-down"></i>
+                            </a>
+                            <div class="dropdown-menu"  aria-labelledby="navbarDropdown1">
+                                <a class="dropdown-item" href="#">User Management</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Session Requests</a>
+                            </div>
+                        </li>
+                        <li><a id="nav-underline" href="/login">Profile</a></li>
+                        <li><a id="nav-underline" href="/login">Log In</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -60,11 +99,11 @@ https://templatemo.com/tm-507-victory
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <h4>Here you can find delecious foods</h4>
-                    <h2>Asian Restaurant</h2>
-                    <p>Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.</p>
+                    <h4>Start Today</h4>
+                    <h2>Make the Dream a Reality</h2>
+                    <p>An Innovative and Supportive Community to Help Srilankan Start Ups</p>
                     <div class="primary-button">
-                        <a href="#" class="scroll-link" data-id="book-table">Order Right Now</a>
+                        <a href="#" class="scroll-link" data-id="book-table">Read More</a>
                     </div>
                 </div>
             </div>
@@ -289,6 +328,62 @@ https://templatemo.com/tm-507-victory
             </div>
         </div>
     </section>
+    <div class="card">
+        <div class="row no-gutters">
+            <div class="col-auto">
+                <img src="img/blog_post_01.jpg"  class="img-fluid" alt="">
+            </div>
+            <div class="col">
+                <div class="card-block px-2">
+                    <h4 class="card-title">Title</h4>
+                    <p class="card-text">Description</p>
+                    <a href="#" class="btn btn-primary">BUTTON</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer w-100 text-muted">
+            Footer stating cats are CUTE little animals
+        </div>
+    </div>
+
+    <section class="our-blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading">
+                        <h2>Our blog post</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                    <div class="food-item">
+                        <h2>Lunch</h2>
+                        <img  alt="">
+                        <div class="price">$7.50</div>
+                        <div class="text-content">
+                            <h4>Taiyaki Gastro Tousled</h4>
+                            <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean shorts hexagon street art knausgaard wolf...</p>
+                        </div>
+                    </div>
+            </div>
+            <!-- <div class="row" sty>
+                <div class="col-md-6">
+                    <div class="blog-post">
+                        <img src="img/blog_post_01.jpg" alt="">
+                        <div class="date">26 Oct 2020</div>
+                        <div class="right-content">
+                            <h4>Stumptown Tofu Schlitz</h4>
+                            <span>Branding / Admin</span>
+                            <p>Skateboard iceland twee tofu shaman crucifix vice before they sold out corn hole occupy drinking vinegar chambra meggings kale chips hexagon...</p>
+                            <div class="text-button">
+                                <a href="#">Continue Reading</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
 
 
 
@@ -396,7 +491,7 @@ https://templatemo.com/tm-507-victory
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <p>Copyright &copy; 2020 Victory Template</p>
+                    <p>Copyright &copy; 2022 Startup Support</p>
                 </div>
                 <div class="col-md-4">
                     <ul class="social-icons">
@@ -408,7 +503,7 @@ https://templatemo.com/tm-507-victory
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <p>Design: TemplateMo</p>
+                    <p>Design: Startup Support Team</p>
                 </div>
             </div>
         </div>

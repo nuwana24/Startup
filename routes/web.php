@@ -19,4 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','App\Http\Controllers\HomeController@index');
 Route::get('/menu','App\Http\Controllers\MenuController@menu');
+Route::get('/login','App\Http\Controllers\LoginController@login');
+Route::get('/signup','App\Http\Controllers\SignupController@signup');
+Route::get('/registerStartup','App\Http\Controllers\RegisterStartupController@registerStartup');
 
