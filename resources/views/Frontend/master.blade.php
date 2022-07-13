@@ -57,7 +57,7 @@ https://templatemo.com/tm-507-victory
                     <ul class="nav navbar-nav">
                         <li><a id="nav-underline" href="index.html">Home</a></li>
                         <li><a id="nav-underline" href="/menu">About</a></li>
-                        <li><a id="nav-underline" href="blog.html">Explore</a></li>
+                        <li><a id="nav-underline" href="/explore">Explore</a></li>
                         <li><a id="nav-underline" href="contact.html">Partners</a></li>
                         <li class="nav-item-dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="nav-underline" role="button" data-toggle="dropdown" >

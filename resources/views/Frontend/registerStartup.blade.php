@@ -59,7 +59,7 @@ https://templatemo.com/tm-507-victory
                     <ul class="nav navbar-nav">
                         <li><a id="nav-underline" href="/">Home</a></li>
                         <li><a id="nav-underline" href="/menu">About</a></li>
-                        <li><a id="nav-underline" href="blog.html">Explore</a></li>
+                        <li><a id="nav-underline" href="/explore">Explore</a></li>
                         <li><a id="nav-underline" href="contact.html">Partners</a></li>
                         <li class="nav-item-dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="nav-underline" role="button" data-toggle="dropdown" >
@@ -181,10 +181,28 @@ https://templatemo.com/tm-507-victory
                     <label for="lname">Startup Category</label>
                 </div>
                 <div class="col-75">
-                    <select id="country" name="country">
-                        <option value="australia">Australia</option>
-                        <option value="canada">Canada</option>
-                        <option value="usa">USA</option>
+                    <select id="country" name="category">
+                        <option value="Agriculture / Agritech">Agriculture / Agritech</option>
+                        <option value="AI">AI</option>
+                        <option value="Arts and Culture">Arts and Culture</option>
+                        <option value="Cloud Computing">Cloud Computing</option>
+                        <option value="Comp. Hardware">Comp. Hardware</option>
+                        <option value="Construction">Construction</option>
+                        <option value="Consulting">Consulting</option>
+                        <option value="Design & Print">Design & Print</option>
+                        <option value="Robotics">Robotics</option>
+                        <option value="Social Innovation">Social Innovation</option>
+                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="Educational / Edutech">Educational / Edutech</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Events">Events</option>
+                        <option value="Fashion">Fashion</option>
+                        <option value="Financial/ Fintech">Financial/ Fintech</option>
+                        <option value="Food & Beverages">Food & Beverages</option>
+                        <option value="Green Technology">Green Technology</option>
+                        <option value="Sports">Sports</option>
+                        <option value="UI/UX">UI/UX</option>
+
                     </select>
                 </div>
                 </div>
