@@ -25,7 +25,8 @@ https://templatemo.com/tm-507-victory
         <!-- <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css"> -->
 		
 		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="css/signup.css">
+		<link rel="stylesheet" href="css/profile.css">
+
 
         <link href="https://fonts.googleapis.com/css?family=Spectral:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
@@ -66,58 +67,73 @@ https://templatemo.com/tm-507-victory
         </div>
         <!--/.container-->
     </div>
-    <div class="wrapper">
-			<div class="inner">
-				<div class="image-holder">
-					<img src="img/signup.jpg" alt="">
-				</div>
-				<form action="">
-					<h3>Create Your Profile</h3>
-					<div class="form-row">
-						<input type="text" class="form-control" placeholder="First Name">
-						<input type="text" class="form-control" placeholder="Last Name">
-					</div>
-                    <div class="form-row">
-						<input type="text" class="form-control" placeholder="Email">
-						<input type="text" class="form-control" placeholder="Password">
-					</div>
-					<div class="form-row">
-						<input type="text" class="form-control" placeholder="Contact Number">
-						<div class="form-holder">
-							<select name="role" id="role" class="form-control">
-								<option value="" disabled selected>Choose Your Role</option>
-								<option value="entrepreneur">Entrepreneur</option>
-								<option value="mentor">Mentor</option>
-							</select>
-							<i class="zmdi zmdi-chevron-down"></i>
-						</div>
-					</div>
-                    <div class="form-row">
-						<input type="text" class="form-control" placeholder="LinkedIn URL">
-						<input type="text" class="form-control" placeholder="University/College">
-					</div>
-                    <div class="form-row">
-                        <!-- <input type="text" class="form-control" name="category" id="category" placeholder="Enter Your Category"> -->
-                        <input type="file" name="file" id="file" class="myPicture" />
-                        <label for="file">Upload a Picture</label>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippets bootdey">
+<div class="row">
+  <div class="profile-nav col-md-3" >
+      <div class="panel" >
+          <div class="user-heading round">
+              <a href="#">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+              </a>
+              <h1>Camila Smith</h1>
+              <p>deydey@theEmail.com</p>
+          </div>
 
+          <ul class="nav nav-pills nav-stacked" style="left:0%">
+              <li ><a href="/profile"> <i class="fa fa-user"></i> Dashboard</a></li>
+              <li class="active"><a href="/mystartups"> <i class="fa fa-calendar"></i> My Startups </a></li>
+              <li><a href="/registerStartup"> <i class="fa fa-plus-square-o"></i> Register New Startup</a></li>
+              <li><a href="/editProfile"> <i class="fa fa-edit"></i> Edit profile</a></li>
+          </ul>
+      </div>
+  </div>
+  <div class="profile-info col-md-9">
+      
+      <div class="profile-info col-md-12" style="padding-right:0px;padding-left:0px;margin-top:0px;">
+      
+        <div class="panel">
+            <div class="panel-body bio-graph-info" style="background: #fbc02d; color: white;">
+                <h1 style=" margin: 0 0 0px; text-align:center">My Startups</h1>
+            </div>
+        </div>
+      </div>
+      <div>
+          <div class="row">
+                <div class="col-md-5" style="background-color: white; margin-left:5%">
+                    <div class="food-item panel">
+                        <h2 style="text-align:center;padding-top:10px">Virtusa</h2>
+                        <h4 style="text-align:center;margin-top:-10px">Strategic Digital Solutions</h4>
+                        <img src="img/startup1.jpg" alt="">
+                        <div class="price" style="right:15px; ">UI/UX</div>
+                        <div class="text-content">
+                            <h4>Description:</h4>
+                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
+                        </div>
+                        <button class="profilebutton">EDIT</button>
+                        
                     </div>
-                    <div class="form-row ">
-                        <p>Already have a account? </p><a class="logInHyper" style="color:#17c8f8; " href="/login"> Log In</a>
+                </div>
+                <div class="col-md-5" style="background-color: white; margin-left:5%">
+                    <div class="food-item panel">
+                        <h2 style="text-align:center;padding-top:10px">Pearson</h2>
+                        <h4 style="text-align:center;margin-top:-10px">Strategic Digital Solutions</h4>
+                        <img src="img/startup2.jpg" alt="">
+                        <div class="price" style="right:15px; ">UI/UX</div>
+                        <div class="text-content">
+                            <h4>Description:</h4>
+                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
+                        </div >
+                        <button class="profilebutton">EDIT</button>
+                        
                     </div>
-					<!-- <textarea name="" id="" placeholder="Message" class="form-control" style="height: 130px;"></textarea> -->
-					<button>Create
-						<i class="zmdi zmdi-long-arrow-right"></i>
-					</button>
-                    
-
-				</form>
-				
-			</div>
-		</div>
-
-
-
+                </div>
+                
+          </div>
+      </div>
+  </div>
+</div>
+</div>
 <footer>
         <div class="container">
             <div class="row">
@@ -149,37 +165,8 @@ https://templatemo.com/tm-507-victory
     <script src="js/main.js"></script>
 
 
-    <script type="text/javascript">
-    var role = document.getElementById("role");
-    var category = document.getElementById("category");
 
-    role.addEventListener("change", function(){
-    //Update this to your logic...
-    if(role.value === "mentor"){
-        category.disabled = true;
-        
-    }
-    });
 
-    <script type="text/javascript">
-    $(document).ready(function()
-      {
-        var navItems = $('.admin-menu li > a');
-        var navListItems = $('.admin-menu li');
-        var allWells = $('.admin-content');
-        var allWellsExceptFirst = $('.admin-content:not(:first)');
-        allWellsExceptFirst.hide();
-        navItems.click(function(e)
-        {
-            e.preventDefault();
-            navListItems.removeClass('active');
-            $(this).closest('li').addClass('active');
-            allWells.hide();
-            var target = $(this).attr('data-target-id');
-            $('#' + target).show();
-        });
-        });
-    </script>
 
     <script type="text/javascript">
     $(document).ready(function() {

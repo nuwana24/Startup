@@ -521,7 +521,10 @@ section.our-blog {
 .blog-post .right-content .text-button a {
 	font-size: 13px;
 	font-weight: 500;
-	color: #f2745f;
+	padding: 10px;
+    border-radius: 10px;
+    color: #f2745f;
+    border: 1px solid #f2745f;
 	text-decoration: none;
 	text-transform: uppercase;
 	margin-top: 12px;

@@ -84,8 +84,8 @@ https://templatemo.com/tm-507-victory
 
           <ul class="nav nav-pills nav-stacked" style="left:0%">
               <li ><a href="/profile"> <i class="fa fa-user"></i> Dashboard</a></li>
-              <li ><a href="/mystartups"> <i class="fa fa-calendar"></i> My Startups </a></li>
-              <li class="active"><a href="/registerStartup"> <i class="fa fa-plus-square-o"></i> Register New Startup</a></li>
+              <li class="active"><a href="/mystartups"> <i class="fa fa-calendar"></i> My Startups </a></li>
+              <li><a href="/registerStartup"> <i class="fa fa-plus-square-o"></i> Register New Startup</a></li>
               <li><a href="/editProfile"> <i class="fa fa-edit"></i> Edit profile</a></li>
           </ul>
       </div>
@@ -96,7 +96,7 @@ https://templatemo.com/tm-507-victory
       
         <div class="panel">
             <div class="panel-body bio-graph-info" style="background: #fbc02d; color: white;">
-                <h1 style=" margin: 0 0 0px; text-align:center">New Startup</h1>
+                <h1 style=" margin: 0 0 0px; text-align:center">My Startups</h1>
             </div>
         </div>
       </div>
@@ -265,11 +265,11 @@ https://templatemo.com/tm-507-victory
                 </div>
                 <div class="col-md-4">
                     <ul class="social-icons">
-                        <!-- <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-facebook"></i></a></li>
+                        <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                         <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li> -->
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">

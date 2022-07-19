@@ -19,8 +19,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','App\Http\Controllers\HomeController@index');
 Route::get('/menu','App\Http\Controllers\MenuController@menu');
+Route::get('/about','App\Http\Controllers\AboutController@about');
 Route::get('/login','App\Http\Controllers\LoginController@login');
 Route::get('/signup','App\Http\Controllers\SignupController@signup');
 Route::get('/explore','App\Http\Controllers\ExploreController@explore');
+Route::get('/partners','App\Http\Controllers\PartnersController@partners');
+Route::get('/profile','App\Http\Controllers\ProfileController@profile');
+Route::get('/editProfile','App\Http\Controllers\ProfileEditController@editprofile');
+Route::get('/mystartups','App\Http\Controllers\ProfileMyStartupsController@profileMyStartups');
+Route::get('/startupedit','App\Http\Controllers\ProfileStartupEditController@profileStartupEdit');
 Route::get('/registerStartup','App\Http\Controllers\RegisterStartupController@registerStartup');
 

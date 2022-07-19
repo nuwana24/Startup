@@ -53,33 +53,10 @@ https://templatemo.com/tm-507-victory
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a id="nav-underline" href="/">Home</a></li>
-                        <li><a id="nav-underline" href="/menu">About</a></li>
-                        <li><a id="nav-underline" href="blog.html">Explore</a></li>
-                        <li><a id="nav-underline" href="contact.html">Partners</a></li>
-                        <li class="nav-item-dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="nav-underline" role="button" data-toggle="dropdown" >
-                            Start Up <i class="fa fa-caret-down"></i>
-                            </a>
-                            <div class="dropdown-menu"  aria-labelledby="navbarDropdown1">
-                                <a class="dropdown-item" href="#">Register Startup</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">View Session</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Get Reports</a>
-                            </div>
-                        </li>
-                        <li><a id="nav-underline" href="/login">Meeting Requests</a></li>
-                        <li class="nav-item dropdown" style="">
-                            <a class="nav-link-dropdown-toggle" href="#" id="nav-underline" role="button" data-toggle="dropdown" >
-                            Admin <i class="fa fa-caret-down"></i>
-                            </a>
-                            <div class="dropdown-menu"  aria-labelledby="navbarDropdown1">
-                                <a class="dropdown-item" href="#">User Management</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Session Requests</a>
-                            </div>
-                        </li>
-                        <li><a id="nav-underline" href="/login">Profile</a></li>
+                        <li><a id="nav-underline" href="/about">About</a></li>
+                        <li><a id="nav-underline" href="/explore">Explore</a></li>
+                        <li><a id="nav-underline" href="/partners">Partners</a></li>
+                        <li><a id="nav-underline" href="/profile">Profile</a></li>
                         <li><a id="nav-underline" href="/login">Log In</a></li>
                     </ul>
                 </div>
