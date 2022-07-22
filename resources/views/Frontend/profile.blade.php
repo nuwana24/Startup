@@ -39,7 +39,7 @@ https://templatemo.com/tm-507-victory
 <body>
     <div class="header">
         <div class="container">
-            <img id="header-image"src="img/logo.png" href="#" width="150" height="90">
+            <img id="header-image"src="img/newlogo.png" href="#" width="150" height="120">
             <hr>
             <nav class="navbar navbar-inverse" role="navigation">
                 <div class="navbar-header">
@@ -57,8 +57,9 @@ https://templatemo.com/tm-507-victory
                         <li><a id="nav-underline" href="/about">About</a></li>
                         <li><a id="nav-underline" href="/explore">Explore</a></li>
                         <li><a id="nav-underline" href="/partners">Partners</a></li>
+                        <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
                         <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="/login">Log In</a></li>
+                        <li><a id="nav-underline" href="#">Log Out</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -74,10 +75,10 @@ https://templatemo.com/tm-507-victory
       <div class="panel">
           <div class="user-heading round">
               <a href="#">
-                  <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                  <img src="img/maina.jpg" alt="">
               </a>
               <h1>Camila Smith</h1>
-              <p>deydey@theEmail.com</p>
+              <h5>deydey@theEmail.com</h5>
           </div>
 
           <ul class="nav nav-pills nav-stacked" style="left:0%">
@@ -87,17 +88,18 @@ https://templatemo.com/tm-507-victory
               <li><a href="/editProfile"> <i class="fa fa-edit"></i> Edit profile</a></li>
               <li><a href="/userManagement"> <i class="fa fa-users"></i> User Management</a></li>
               <li><a href="/startupManagement"> <i class="fa fa-building"></i> Startup Managament</a></li>
-              <li><a href="/sessinManagement"> <i class="fa fa-meetup"></i> Session Requests</a></li>
+              <li><a href="/adminSessionManagement"> <i class="fa fa-meetup"></i> Session Requests</a></li>
+              <li><a href="/guestTalksTrainingsManagement"> <i class="fa fa-crosshairs"></i> Guest Talks / Trainings</a></li>
           </ul>
       </div>
   </div>
-  <div class="profile-info col-md-9">
+  <div class="profile-info col-md-9" id="dark-backgound">
       
       <div class="panel">
           <!-- <div class="bio-graph-heading">
               Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ispum. Aliquam ac magna metus.
           </div> -->
-          <div class="panel-body bio-graph-info" style="background: #fbc02d; color: white;">
+          <div class="panel-body bio-graph-info" style="background: #1494bb; color: white;">
                 <h1 style=" margin: 0 0 0px; text-align:center">Bio Graph</h1>
             </div>
           <div class="panel-body bio-graph-info">
@@ -135,7 +137,7 @@ https://templatemo.com/tm-507-victory
       <div class="profile-info col-md-12" style="padding-right:0px;padding-left:0px;">
       
         <div class="panel">
-            <div class="panel-body bio-graph-info" style="background: #fbc02d; color: white;">
+            <div class="panel-body bio-graph-info" style="background: #1494bb; color: white;">
                 <h1 style=" margin: 0 0 0px; text-align:center">My Sessions</h1>
             </div>
         </div>

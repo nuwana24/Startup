@@ -7,7 +7,7 @@
 Victory HTML CSS Template
 https://templatemo.com/tm-507-victory
 -->
-        <title>Victory HTML CSS Template</title>
+        <title>Startup Support</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -38,7 +38,7 @@ https://templatemo.com/tm-507-victory
 <body>
     <div class="header">
         <div class="container">
-            <img id="header-image"src="img/logo.png" href="#" width="150" height="90">
+            <img id="header-image"src="img/newlogo.png" href="#" width="150" height="120">
             <hr>
             <nav class="navbar navbar-inverse" role="navigation">
                 <div class="navbar-header">
@@ -56,8 +56,9 @@ https://templatemo.com/tm-507-victory
                         <li><a id="nav-underline" href="/about">About</a></li>
                         <li><a id="nav-underline" href="/explore">Explore</a></li>
                         <li><a id="nav-underline" href="/partners">Partners</a></li>
+                        <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
                         <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="/login">Log In</a></li>
+                        <li><a id="nav-underline" href="#">Log Out</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -70,13 +71,13 @@ https://templatemo.com/tm-507-victory
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Contact Us</h1>
-                    <p>Whatever drinking vinegar hella fingerstache shoreditch kickstarter kitsch. La croix hella iceland flexitarian letterpress.</p>
+                    <h1>Partners</h1>
+                    <p>Findout more information on our mentors who are the backbone of our community</p>
                 </div>
             </div>
         </div>
     </section>
-
+            
     <section class="featured-food">
         <div class="container">
             <div class="row">
@@ -84,12 +85,12 @@ https://templatemo.com/tm-507-victory
                     <h2>Weekly Featured Food</h2>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
             @for ($i = 0; $i <= 4; $i++)
-                <div class="col-md-6">
+                 <div class="col-md-6">
                     <div class="blog-post">
                         <img src="img/blog_post_01.jpg" alt="">
-                        <!-- <div class="date">26 Oct 2020</div> -->
+                        <div class="date">26 Oct 2020</div>
                         <div class="right-content">
                             <h4>Mahinda Rajapaksha</h4>
                             <h5>Category</h5>
@@ -104,64 +105,51 @@ https://templatemo.com/tm-507-victory
                         </div>
                     </div>
                 </div>
-            @endfor
+            @endfor -->
 
-                
-                <!-- <div class="col-md-4">
-                    <div class="food-item">
-                        <h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
-                        <img src="img/lunch_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
-                        <div class="text-content">
-                            <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
-                        </div>
-                      
-                        <div class="text-content">
-                            <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="food-item">
-                    	<h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
-                        <img src="img/dinner_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
-                        <div class="text-content">
-                            <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
-                        </div>
-                      
-                        <div class="text-content">
-                            <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
-                        </div>
-                    </div> -->
-                <!-- </div> -->
-            </div>
+         <div class="row">
+            @for ($i = 0; $i <= 4; $i++)
+                 <div class="col-md-4">
+                    <ul>
+                        <li class="booking-card" style= "background-image: url(img/maina.jpg)";>
+                            <div class="book-container">
+                            <div class="content">
+                                <button class="btn">Request Meeting</button>
+                            </div>
+                            </div>
+                            <div class="informations-container">
+                            <h2 class="title">Mahinda Rajapaksha</h2>
+                            <p class="sub-title"><strong>Electronic Engineering</strong></p>
+                            <p style="margin-bottom: 20px" class="sub-title">mahinda@gmail.com</p>
+                           
+                            <div class="more-information">
+                                <div class="info-and-date-container">
+                                <div class="box info">
+                                    <svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218" />
+                                </svg>
+                                    <p>Rating</p>
+                                    <p>4.8 / 5.0</p>
+                                </div>
+                                <div class="box date">
+                                    <svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24" stroke="#1494bb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                                    <circle cx="12" cy="12" r="9" />
+                                    <path d="M12,3 C 8,3 8,21 12,21 C 16,21 16,3 12,3"/>
+                                    <path d="M3,12 C 3,8 21,8 21,12 C 21,16 3,16 3,12"/>
+                        </svg>
+                                    <p>Samedi 1er février 2020</p>
+                                </div>
+                                </div>
+                                <p class="disclaimer">Lorem ipsum dolor sit amet consectetur, </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                 </div>
+            @endfor 
+        </div>
+            
+            
             
         </div>
     </section>

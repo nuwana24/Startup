@@ -38,7 +38,7 @@ https://templatemo.com/tm-507-victory
 <body>
     <div class="header">
         <div class="container">
-            <img id="header-image"src="img/newlogo.png" href="#" width="150" height="120">
+        <img id="header-image"src="img/newlogo.png" href="#" width="150" height="120">
             <hr>
             <nav class="navbar navbar-inverse" role="navigation">
                 <div class="navbar-header">
@@ -57,8 +57,7 @@ https://templatemo.com/tm-507-victory
                         <li><a id="nav-underline" href="/explore">Explore</a></li>
                         <li><a id="nav-underline" href="/partners">Partners</a></li>
                         <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
-                        <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="#">Log Out</a></li>
+                        <li><a id="nav-underline" href="/login">Log In</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -67,114 +66,57 @@ https://templatemo.com/tm-507-victory
         </div>
         <!--/.container-->
     </div>
-    <section class="page-heading">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Explore</h1>
-                    <p>Find about more infomation about the new startups that entered to the industry</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="wrapper">
+			<div class="inner">
+				<div class="image-holder">
+					<img src="img/signup2.jpg" alt="">
+				</div>
+				<form action="">
+					<h3>Create Your Profile</h3>
+					<div class="form-row">
+						<input type="text" class="form-control" placeholder="First Name">
+						<input type="text" class="form-control" placeholder="Last Name">
+					</div>
+                    <div class="form-row">
+						<input type="text" class="form-control" placeholder="Email">
+						<input type="text" class="form-control" placeholder="Password">
+					</div>
+					<div class="form-row">
+						<input type="text" class="form-control" placeholder="Contact Number">
+						<div class="form-holder">
+							<select name="role" id="role" class="form-control">
+								<option value="" disabled selected>Choose Your Role</option>
+								<option value="entrepreneur">Entrepreneur</option>
+								<option value="mentor">Mentor</option>
+							</select>
+							<i class="zmdi zmdi-chevron-down"></i>
+						</div>
+					</div>
+                    <div class="form-row">
+						<input type="text" class="form-control" placeholder="LinkedIn URL">
+						<input type="text" class="form-control" placeholder="University/College">
+					</div>
+                    <div class="form-row">
+                        <!-- <input type="text" class="form-control" name="category" id="category" placeholder="Enter Your Category"> -->
+                        <input type="file" name="file" id="file" class="myPicture" />
+                        <label for="file">Upload a Picture</label>
 
-    <section class="featured-food">
-        <div class="container">
-            <div class="row">
-                <div class="heading">
-                    <h2>Weekly Featured Food</h2>
-                </div>
-            </div>
-            <div class="row">
-            @for ($i = 0; $i <= 4; $i++)
-            <div class="col-md-4">
-                    <div class="food-item">
-                        <h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
-                        <img src="img/breakfast_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
-                        <div class="text-content">
-                            <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
-                        </div>
-                      
-                        <div class="text-content">
-                            <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
-                        </div>
                     </div>
-                </div>
-            @endfor
+                    <div class="form-row ">
+                        <p>Already have a account? </p><a class="logInHyper" style="color:#17c8f8; " href="/login"> Log In</a>
+                    </div>
+					<!-- <textarea name="" id="" placeholder="Message" class="form-control" style="height: 130px;"></textarea> -->
+					<button>Create
+						<i class="zmdi zmdi-long-arrow-right"></i>
+					</button>
+                    
 
-                
-                <!-- <div class="col-md-4">
-                    <div class="food-item">
-                        <h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
-                        <img src="img/lunch_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
-                        <div class="text-content">
-                            <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
-                        </div>
-                      
-                        <div class="text-content">
-                            <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="food-item">
-                    	<h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
-                        <img src="img/dinner_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
-                        <div class="text-content">
-                            <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
-                        </div>
-                      
-                        <div class="text-content">
-                            <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
-                        </div>
-                    </div> -->
-                <!-- </div> -->
-            </div>
-            
-        </div>
-    </section>
+				</form>
+				
+			</div>
+		</div>
+
+
 
 <footer>
         <div class="container">
@@ -205,6 +147,39 @@ https://templatemo.com/tm-507-victory
 
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+
+
+    <script type="text/javascript">
+    var role = document.getElementById("role");
+    var category = document.getElementById("category");
+
+    role.addEventListener("change", function(){
+    //Update this to your logic...
+    if(role.value === "mentor"){
+        category.disabled = true;
+        
+    }
+    });
+
+    <script type="text/javascript">
+    $(document).ready(function()
+      {
+        var navItems = $('.admin-menu li > a');
+        var navListItems = $('.admin-menu li');
+        var allWells = $('.admin-content');
+        var allWellsExceptFirst = $('.admin-content:not(:first)');
+        allWellsExceptFirst.hide();
+        navItems.click(function(e)
+        {
+            e.preventDefault();
+            navListItems.removeClass('active');
+            $(this).closest('li').addClass('active');
+            allWells.hide();
+            var target = $(this).attr('data-target-id');
+            $('#' + target).show();
+        });
+        });
+    </script>
 
     <script type="text/javascript">
     $(document).ready(function() {

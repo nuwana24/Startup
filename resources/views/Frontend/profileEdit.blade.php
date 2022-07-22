@@ -7,7 +7,7 @@
 Victory HTML CSS Template
 https://templatemo.com/tm-507-victory
 -->
-        <title>Victory HTML CSS Template</title>
+        <title>Startup Support</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -41,7 +41,7 @@ https://templatemo.com/tm-507-victory
 <body>
     <div class="header">
         <div class="container">
-            <img id="header-image"src="img/logo.png" href="#" width="150" height="90">
+            <img id="header-image"src="img/newlogo.png" href="#" width="150" height="120">
             <hr>
             <nav class="navbar navbar-inverse" role="navigation">
                 <div class="navbar-header">
@@ -59,8 +59,9 @@ https://templatemo.com/tm-507-victory
                         <li><a id="nav-underline" href="/about">About</a></li>
                         <li><a id="nav-underline" href="/explore">Explore</a></li>
                         <li><a id="nav-underline" href="/partners">Partners</a></li>
+                        <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
                         <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="/login">Log In</a></li>
+                        <li><a id="nav-underline" href="#">Log Out</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->

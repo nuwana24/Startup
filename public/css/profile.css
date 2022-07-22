@@ -1,6 +1,6 @@
 body {
     color: #797979;
-    background: #fafafc;
+    background: #ffffff;
     font-family: 'Open Sans', sans-serif;
     padding: 0px !important;
     margin: 0px !important;
@@ -10,12 +10,13 @@ body {
     -moz-font-smoothing: antialiased;
 }
 
+
 .profile-nav, .profile-info{
     margin-top:30px;   
 }
 
 .profile-nav .user-heading {
-    background: #fbc02d;
+    background: #1494bb;
     color: #fff;
     border-radius: 4px 4px 0 0;
     -webkit-border-radius: 4px 4px 0 0;
@@ -32,7 +33,7 @@ body {
 
 .profile-nav .user-heading a img {
     width: 112px;
-    height: 112px;
+    height: 120px;
     border-radius: 50%;
     -webkit-border-radius: 50%;
 }
@@ -70,7 +71,7 @@ body {
 
 .profile-nav ul > li > a:hover, .profile-nav ul > li > a:focus, .profile-nav ul li.active  a {
     background: #f8f7f5 !important;
-    border-left: 5px solid #fbc02d;
+    border-left: 5px solid #1494bb;
     color: #89817f !important;
 }
 
@@ -133,6 +134,7 @@ body {
 
 .bio-row {
     width: 50%;
+    font-weight: 700;
     float: left;
     margin-bottom: 10px;
     padding:0 15px;

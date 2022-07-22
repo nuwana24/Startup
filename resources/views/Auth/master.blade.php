@@ -62,8 +62,7 @@ https://templatemo.com/tm-507-victory
                         <li><a id="nav-underline" href="/explore">Explore</a></li>
                         <li><a id="nav-underline" href="/partners">Partners</a></li>
                         <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
-                        <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="#">Log Out</a></li>
+                        <li><a id="nav-underline" href="/login">Log In</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->

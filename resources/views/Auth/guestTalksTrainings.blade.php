@@ -38,7 +38,7 @@ https://templatemo.com/tm-507-victory
 <body>
     <div class="header">
         <div class="container">
-            <img id="header-image"src="img/newlogo.png" href="#" width="150" height="120">
+          <img id="header-image"src="img/newlogo.png" href="#" width="150" height="120">
             <hr>
             <nav class="navbar navbar-inverse" role="navigation">
                 <div class="navbar-header">
@@ -57,8 +57,7 @@ https://templatemo.com/tm-507-victory
                         <li><a id="nav-underline" href="/explore">Explore</a></li>
                         <li><a id="nav-underline" href="/partners">Partners</a></li>
                         <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
-                        <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="#">Log Out</a></li>
+                        <li><a id="nav-underline" href="/login">Log In</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -71,8 +70,8 @@ https://templatemo.com/tm-507-victory
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Explore</h1>
-                    <p>Find about more infomation about the new startups that entered to the industry</p>
+                    <h1>About Us</h1>
+                    <!-- <p>Find out more about us</p> -->
                 </div>
             </div>
         </div>
@@ -85,36 +84,26 @@ https://templatemo.com/tm-507-victory
                     <h2>Weekly Featured Food</h2>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
             @for ($i = 0; $i <= 4; $i++)
-            <div class="col-md-4">
-                    <div class="food-item">
-                        <h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
-                        <img src="img/breakfast_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
-                        <div class="text-content">
-                            <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
-                        </div>
-                      
-                        <div class="text-content">
-                            <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
+                <div class="col-md-6">
+                    <div class="blog-post">
+                        <img src="img/blog_post_01.jpg" alt="">
+                        <div class="right-content">
+                            <h4>Mahinda Rajapaksha</h4>
+                            <h5>Category</h5>
+                            <span>UI/UX</span>
+                            <h5>University/College</h5>
+                            <span>UI/UX</span>
+                            <h5>LinkedIn URL</h5>
+                            <span>www.youtube.com</span>
+                            <div class="text-button">
+                                <a href="#">Continue Reading</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            @endfor
+            @endfor -->
 
                 
                 <!-- <div class="col-md-4">

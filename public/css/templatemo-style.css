@@ -44,7 +44,7 @@ p {
 .primary-white-button a {
 	display: inline-block;
 	background-color: #fff;
-	color: #f2745f;
+	color: #1494bb;
 	font-size: 13px;
 	text-transform: uppercase;
 	font-weight: 500;
@@ -74,12 +74,33 @@ p {
     padding: 20px 0px 0px 0px;
     z-index: 10000;
     transition: all 0.2s ease-in-out;
-    background-color: #eaf0ff;  
+    /* background-color: #eaf0ff;   */
     text-align: center;
 }
+#icon-grid{
+	border-right: 3px solid rgba(20, 148, 187, .7);
+	opacity: 0.;
+}
+#pulse-button a:hover{ 
+		animation: pulse 1s infinite;
+		animation-timing-function: linear;   
+	  }
+	  
+ @keyframes pulse {
+	0% { transform: scale(1); }
+	50% { transform: scale(1.1);}
+	100% { transform: scale(1); }
+}
+.justify-para{
+	font-weight: 700;
+	margin-top: 15px;
+	color: #575757;
+	text-align: justify;
+  	text-justify: inter-word
+}	  
 hr{
-	border: 1px solid #fac447;
-	margin-bottom: -5px;
+	border: 1px solid #16b68a;
+	margin-bottom: -1px;
 }
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
@@ -101,6 +122,7 @@ hr{
 }
 
 #main-nav {
+	/* width: 100vw; */
 	padding: 5px 0px;
 	float: right;
     position:relative;
@@ -109,6 +131,7 @@ hr{
 }
 
 .nav {
+	
 	list-style:none;
     position:relative;
     left:50%;
@@ -130,8 +153,10 @@ hr{
     background-color: #eaf0ff;
 }
 .navbar-inverse {
+	width: 100%;
 	background-image: none;
-	background-color: transparent;
+	/* background-color: transparent; */
+	background-color: white;
 }
 .header .navbar {
     margin: 0;
@@ -139,8 +164,8 @@ hr{
 }
 .navbar-inverse .navbar-toggle {
 	margin-top: 22px;
-    border-color: #f2745f;
-    background-color: #f2745f;
+    border-color: #1494bb;
+    background-color: #1494bb;
 }
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
 	background-color: #f2745f;
@@ -221,7 +246,7 @@ section.cook-delecious {
 }
 
 .cook-delecious .cook-content {
-	background-color: #f2745f;
+	background-color: #1494bb;
 	text-align: center;
 	padding: 30px;
 }
@@ -237,7 +262,7 @@ section.cook-delecious {
 }
 
 .cook-content .contact-content {
-	background-color: #f3826f;
+	background-color: #16b68a;
 	padding: 20px 30px;
 }
 
@@ -268,7 +293,7 @@ section.cook-delecious {
 	text-transform: uppercase;
 	color: #fff;
 	letter-spacing: 1px;
-	border: 1px solid #da6856;
+	border: 1px solid #fff;
 	width: 25px;
 	height: 25px;
 	display: inline-block;
@@ -487,6 +512,7 @@ section.our-blog {
 
 .blog-post img {
 	width: 50%;
+	border-radius: 80%;
 	overflow: hidden;
 }
 
@@ -1043,6 +1069,7 @@ section.map #map {
 	}
 	.blog-post img {
 		width: 100%;
+		border-radius: 50%;
 		overflow: hidden;
 	}
 	.blog-post {

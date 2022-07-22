@@ -25,7 +25,8 @@ https://templatemo.com/tm-507-victory
         <!-- <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css"> -->
 		
 		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="css/signup.css">
+		<link rel="stylesheet" href="css/profile.css">
+
 
         <link href="https://fonts.googleapis.com/css?family=Spectral:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
@@ -67,115 +68,91 @@ https://templatemo.com/tm-507-victory
         </div>
         <!--/.container-->
     </div>
-    <section class="page-heading">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Explore</h1>
-                    <p>Find about more infomation about the new startups that entered to the industry</p>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippets bootdey">
+    <div class="row">
+        <div class="profile-nav col-md-3">
+            <div class="panel">
+                <div class="user-heading round">
+                    <a href="#">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                    </a>
+                    <h1>Camila Smith</h1>
+                    <h5>deydey@theEmail.com</h5>
                 </div>
+
+                <ul class="nav nav-pills nav-stacked" style="left:0%">
+                    <li><a href="/profile"> <i class="fa fa-user"></i> Dashboard</a></li>
+                    <li><a href="/mystartups"> <i class="fa fa-calendar"></i> My Startups </a></li>
+                    <li><a href="/registerStartup"> <i class="fa fa-plus-square-o"></i> Register New Startup</a></li>
+                    <li><a href="/editProfile"> <i class="fa fa-edit"></i> Edit profile</a></li>
+                    <li ><a href="/userManagement"> <i class="fa fa-users"></i> User Management</a></li>
+                    <li><a href="/startupManagement"> <i class="fa fa-building"></i> Startup Managament</a></li>
+                    <li  class="active"><a href="/adminSessionManagement"> <i class="fa fa-meetup"></i> Session Requests</a></li>
+                    <li><a href="/guestTalksTrainingsManagement"> <i class="fa fa-crosshairs"></i> Guest Talks / Trainings</a></li>
+
+                </ul>
             </div>
         </div>
-    </section>
 
-    <section class="featured-food">
-        <div class="container">
-            <div class="row">
-                <div class="heading">
-                    <h2>Weekly Featured Food</h2>
-                </div>
+          <div class="col-md-9">
+            <div class="card" style="margin-top:40px">
+            <div class="panel-body bio-graph-info" style="background: #1494bb; color: white;">
+                <h1 style=" margin: 0 0 0px; text-align:center">User Management</h1>
             </div>
-            <div class="row">
-            @for ($i = 0; $i <= 4; $i++)
-            <div class="col-md-4">
-                    <div class="food-item">
-                        <h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
-                        <img src="img/breakfast_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
-                        <div class="text-content">
-                            <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
-                        </div>
-                      
-                        <div class="text-content">
-                            <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
-                        </div>
-                    </div>
-                </div>
-            @endfor
+              <div class="card-body" style="margin-top:30px">
+                <div class="table-responsive">
+                  <table id="dataTable" class="table">
+                    <thead class=" text-primary font-weight-bold" >
+                      <th></th>
 
-                
-                <!-- <div class="col-md-4">
-                    <div class="food-item">
-                        <h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
-                        <img src="img/lunch_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
-                        <div class="text-content">
-                            <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
-                        </div>
-                      
-                        <div class="text-content">
-                            <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
-                        </div>
-                    </div>
+                      <th>
+                        Name
+                      </th>
+                      <th>
+                        Email
+                      </th>
+                      <th>
+                        Role
+                      </th> 
+                      <th>
+                        Category
+                      </th>  
+                      <th>
+                        Telephone
+                      </th>  
+                      <th>
+                        
+                      </th>  
+                      <th>
+                        
+                      </th>  
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <input type="hidden" class="diseaseDelete" >
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>
+                            <a href='#' class="btn btn-success" style="float:right; position:relative;">Edit</a> 
+                          </td>
+                          <td style="max-width:100px">
+                            <a href="#" class="btn btn-danger deletebtn" style="float:left; position:relative;"> DELETE </a>                          
+                          </td>
+                        </tr>
+                     
+                    </tbody>
+                  </table>
                 </div>
-                <div class="col-md-4">
-                    <div class="food-item">
-                    	<h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
-                        <img src="img/dinner_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
-                        <div class="text-content">
-                            <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
-                        </div>
-                      
-                        <div class="text-content">
-                            <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
-                        </div>
-                    </div> -->
-                <!-- </div> -->
+              </div>
             </div>
-            
+          </div>
         </div>
-    </section>
-
+  </div>  
 <footer>
         <div class="container">
             <div class="row">
@@ -205,6 +182,10 @@ https://templatemo.com/tm-507-victory
 
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+
+
+
+
 
     <script type="text/javascript">
     $(document).ready(function() {

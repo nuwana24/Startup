@@ -57,8 +57,7 @@ https://templatemo.com/tm-507-victory
                         <li><a id="nav-underline" href="/explore">Explore</a></li>
                         <li><a id="nav-underline" href="/partners">Partners</a></li>
                         <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
-                        <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="#">Log Out</a></li>
+                        <li><a id="nav-underline" href="/login">Log In</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -67,114 +66,34 @@ https://templatemo.com/tm-507-victory
         </div>
         <!--/.container-->
     </div>
-    <section class="page-heading">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Explore</h1>
-                    <p>Find about more infomation about the new startups that entered to the industry</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="featured-food">
-        <div class="container">
-            <div class="row">
-                <div class="heading">
-                    <h2>Weekly Featured Food</h2>
-                </div>
-            </div>
-            <div class="row">
-            @for ($i = 0; $i <= 4; $i++)
-            <div class="col-md-4">
-                    <div class="food-item">
-                        <h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
-                        <img src="img/breakfast_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
-                        <div class="text-content">
-                            <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
-                        </div>
-                      
-                        <div class="text-content">
-                            <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
-                        </div>
+    <div class="wrapper">
+			<div class="inner">
+				<div class="image-holder">
+					<img src="img/signup1.jpg" alt="">
+				</div>
+				<form action="">
+					<h3 style="margin-top:50px">Log In to Startup Support</h3>
+                    <div class="loginfield" style="margin-top:50px">
+						<input type="text" class="form-control" placeholder="Username">
                     </div>
-                </div>
-            @endfor
-
-                
-                <!-- <div class="col-md-4">
-                    <div class="food-item">
-                        <h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
-                        <img src="img/lunch_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
-                        <div class="text-content">
-                            <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
-                        </div>
-                      
-                        <div class="text-content">
-                            <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
-                        </div>
+                    <div class="loginfield">
+						<input type="text" class="form-control" placeholder="Password">
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="food-item">
-                    	<h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
-                        <img src="img/dinner_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
-                        <div class="text-content">
-                            <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
-                        </div>
-                      
-                        <div class="text-content">
-                            <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
-                        </div>
-                    </div> -->
-                <!-- </div> -->
-            </div>
-            
-        </div>
-    </section>
+                    <div class="loginfield">
+                      <p>Dont have a account? </p><a class="logInHyper" style="color:#17c8f8; " href="/signup"> Sign Up</a>
+                    </div>
+						
+					
+					<button style="margin-top:50px">Log In
+						<i class="zmdi zmdi-long-arrow-right"></i>
+					</button>
+                    
+
+				</form>
+				
+			</div>
+		</div>
+
 
 <footer>
         <div class="container">
