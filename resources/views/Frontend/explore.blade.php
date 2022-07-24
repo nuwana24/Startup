@@ -54,11 +54,18 @@ https://templatemo.com/tm-507-victory
                     <ul class="nav navbar-nav">
                         <li><a id="nav-underline" href="/">Home</a></li>
                         <li><a id="nav-underline" href="/about">About</a></li>
-                        <li><a id="nav-underline" href="/explore">Explore</a></li>
-                        <li><a id="nav-underline" href="/partners">Partners</a></li>
+                        <li><a id="nav-underline" href="/startups">Startups</a></li>
+                        <li><a id="nav-underline" href="/mentors">Menotrs</a></li>
                         <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
                         <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="#">Log Out</a></li>
+                        <li>
+                            <a id="nav-underline" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                            </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                </form>
+                        </li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -82,39 +89,43 @@ https://templatemo.com/tm-507-victory
         <div class="container">
             <div class="row">
                 <div class="heading">
-                    <h2>Weekly Featured Food</h2>
+                    <h2>Startups</h2>
                 </div>
             </div>
             <div class="row">
-            @for ($i = 0; $i <= 4; $i++)
+            @foreach($startups as $startup)
             <div class="col-md-4">
                     <div class="food-item">
-                        <h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
+                        <h2>{{$startup->tagline}}</h2>
+                        <h4>{{$startup->startupName}}</h4>
+                        @if($startup->logo != null)
+                        <img src="img/{{$startup->logo}}" alt="">
+                        @else
                         <img src="img/breakfast_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
+                        @endif
+                        <div class="price">{{$startup->startupCategory}}</div>
                         <div class="text-content">
                             <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
+                            <p>{{$startup->description}}.</p>
                         </div>
                       
                         <div class="text-content">
                             <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
+                            <p>{{$startup->founderName}}</p>
+                            <p>{{$startup->founderEmail}}</p>
+                            <p>{{$startup->founderTelephone}}</p>
                         </div>
                         <div class="text-content">
                             <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
+                            <p>{{$startup->foundedDate}}</p>
                         </div>
                         <div class="text-content">
                             <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
+                            <a href="{{$startup->webUrl}}">{{$startup->webUrl}}</a>
                         </div>
                     </div>
                 </div>
-            @endfor
+            @endforeach
 
                 
                 <!-- <div class="col-md-4">
@@ -241,6 +252,16 @@ https://templatemo.com/tm-507-victory
             log: function() { }
         };
     }
+    </script>
+    <script src="{{asset('js/sweetalert.js')}}"></script>
+    <script>
+     @if (session('status'))
+      swal({
+          title: '{{ session('status') }}',
+          icon: '{{ session('status_code') }}',
+          button: "OK",
+          });
+    @endif
     </script>
 </body>
 </html>

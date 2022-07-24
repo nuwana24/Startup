@@ -54,11 +54,18 @@ https://templatemo.com/tm-507-victory
                     <ul class="nav navbar-nav">
                         <li><a id="nav-underline" href="/">Home</a></li>
                         <li><a id="nav-underline" href="/about">About</a></li>
-                        <li><a id="nav-underline" href="/explore">Explore</a></li>
-                        <li><a id="nav-underline" href="/partners">Partners</a></li>
+                        <li><a id="nav-underline" href="/startups">Startups</a></li>
+                        <li><a id="nav-underline" href="/mentors">Menotrs</a></li>
                         <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
                         <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="#">Log Out</a></li>
+                        <li>
+                            <a id="nav-underline" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                            </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                </form>
+                        </li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -82,85 +89,37 @@ https://templatemo.com/tm-507-victory
         <div class="container">
             <div class="row">
                 <div class="heading">
-                    <h2>Weekly Featured Food</h2>
+                    <h2>Guest Talks</h2>
                 </div>
             </div>
-            <!-- <div class="row">
-            @for ($i = 0; $i <= 4; $i++)
-                <div class="col-md-6">
-                    <div class="blog-post">
-                        <img src="img/blog_post_01.jpg" alt="">
-                        <div class="right-content">
-                            <h4>Mahinda Rajapaksha</h4>
-                            <h5>Category</h5>
-                            <span>UI/UX</span>
-                            <h5>University/College</h5>
-                            <span>UI/UX</span>
-                            <h5>LinkedIn URL</h5>
-                            <span>www.youtube.com</span>
-                            <div class="text-button">
-                                <a href="#">Continue Reading</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endfor -->
-
-                
-                <!-- <div class="col-md-4">
+            <div class="row">
+            @foreach($guestTalks as $guestTalk)
+            <div class="col-md-4">
                     <div class="food-item">
-                        <h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
-                        <img src="img/lunch_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
+                        <h2>{{$guestTalk->eventName}}</h2>
+                        @if($guestTalk->eventImage != null)
+                        <img src="img/{{$guestTalk->eventImage}}" alt="">
+                        @else
+                        <img src="img/breakfast_item.jpg" alt="">
+                        @endif
+                        
                         <div class="text-content">
                             <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
+                            <p>{{$guestTalk->description}}.</p>
                         </div>
                       
                         <div class="text-content">
-                            <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
+                            <h4>Date & Time:</h4>
+                            <p>{{$guestTalk->date}}</p>
+                            <p>{{$guestTalk->time}}</p>
                         </div>
                         <div class="text-content">
                             <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
+                            <a href="{{$guestTalk->eventLink}}">{{$guestTalk->eventLink}}</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="food-item">
-                    	<h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
-                        <img src="img/dinner_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
-                        <div class="text-content">
-                            <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
-                        </div>
-                      
-                        <div class="text-content">
-                            <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
-                        </div>
-                        <div class="text-content">
-                            <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
-                        </div>
-                    </div> -->
-                <!-- </div> -->
+            @endforeach
             </div>
             
         </div>
@@ -231,6 +190,16 @@ https://templatemo.com/tm-507-victory
             log: function() { }
         };
     }
+    </script>
+    <script src="{{asset('js/sweetalert.js')}}"></script>
+    <script>
+     @if (session('status'))
+      swal({
+          title: '{{ session('status') }}',
+          icon: '{{ session('status_code') }}',
+          button: "OK",
+          });
+    @endif
     </script>
 </body>
 </html>

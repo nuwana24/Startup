@@ -55,11 +55,18 @@ https://templatemo.com/tm-507-victory
                     <ul class="nav navbar-nav">
                         <li><a id="nav-underline" href="/">Home</a></li>
                         <li><a id="nav-underline" href="/about">About</a></li>
-                        <li><a id="nav-underline" href="/explore">Explore</a></li>
-                        <li><a id="nav-underline" href="/partners">Partners</a></li>
+                        <li><a id="nav-underline" href="/startups">Startups</a></li>
+                        <li><a id="nav-underline" href="/mentors">Menotrs</a></li>
                         <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
                         <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="#">Log Out</a></li>
+                        <li>
+                            <a id="nav-underline" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                            </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                </form>
+                        </li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -74,22 +81,43 @@ https://templatemo.com/tm-507-victory
         <div class="profile-nav col-md-3">
             <div class="panel">
                 <div class="user-heading round">
+                    @if(Auth::user()->profilePicturePath != null)
+                    <a href="#">
+                        <img src="img/{{Auth::user()->profilePicturePath}}" alt="">
+                    </a>
+                    @else
                     <a href="#">
                         <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
                     </a>
-                    <h1>Camila Smith</h1>
-                    <h5>deydey@theEmail.com</h5>
+                    @endif
+                    <h1>{{Auth::user()->firstName}}&nbsp{{Auth::user()->lastName}}</h1>
+                    <h5>{{Auth::user()->email}}</h5>
                 </div>
 
                 <ul class="nav nav-pills nav-stacked" style="left:0%">
-                    <li><a href="/profile"> <i class="fa fa-user"></i> Dashboard</a></li>
+                <li><a href="/profile"> <i class="fa fa-user"></i> Dashboard</a></li>
+                    @role('Entrepreneur')
                     <li><a href="/mystartups"> <i class="fa fa-calendar"></i> My Startups </a></li>
+                    @endrole
+                    @role('Entrepreneur')
                     <li><a href="/registerStartup"> <i class="fa fa-plus-square-o"></i> Register New Startup</a></li>
+                    @endrole
                     <li><a href="/editProfile"> <i class="fa fa-edit"></i> Edit profile</a></li>
+                    @role('Admin')
                     <li ><a href="/userManagement"> <i class="fa fa-users"></i> User Management</a></li>
-                    <li class="active"><a href="/startupManagement"> <i class="fa fa-building"></i> Startup Managament</a></li>
-                    <li><a href="/adminSessionManagement"> <i class="fa fa-meetup"></i> Session Requests</a></li>
+                    @endrole
+                    @role('Admin')
+                    <li><a href="/startupManagement"> <i class="fa fa-building"></i> Startup Managament</a></li>
+                    @endrole
+                    @role('Mentor')
+                    <li><a href="/getMeetingRequestsOfMentor"> <i class="fa fa-building"></i> Session Requests For Mentor</a></li>
+                    @endrole
+                    @role('Admin')
+                    <li  class="active"><a href="/adminSessionManagement"> <i class="fa fa-meetup"></i> Session Requests For Admin</a></li>
+                    @endrole
+                    @role('Admin')
                     <li><a href="/guestTalksTrainingsManagement"> <i class="fa fa-crosshairs"></i> Guest Talks / Trainings</a></li>
+                    @endrole
 
                 </ul>
             </div>
@@ -98,52 +126,38 @@ https://templatemo.com/tm-507-victory
           <div class="col-md-9">
             <div class="card" style="margin-top:40px">
             <div class="panel-body bio-graph-info" style="background: #1494bb; color: white;">
-                <h1 style=" margin: 0 0 0px; text-align:center">User Management</h1>
+                <h1 style=" margin: 0 0 0px; text-align:center">Startups Management</h1>
             </div>
               <div class="card-body" style="margin-top:30px">
                 <div class="table-responsive">
                   <table id="dataTable" class="table">
                     <thead class=" text-primary font-weight-bold" >
-                      <th></th>
+                      
 
                       <th>
-                        Name
+                        Registered Owner
                       </th>
                       <th>
-                        Email
+                        Startup Name
                       </th>
                       <th>
-                        Role
-                      </th> 
-                      <th>
-                        Category
-                      </th>  
-                      <th>
-                        Telephone
-                      </th>  
-                      <th>
-                        
-                      </th>  
+                        Company
+                      </th>   
                       <th>
                         
                       </th>  
                     </thead>
                     <tbody>
+                        @foreach($startups as $startup)
                         <tr>
-                        <input type="hidden" class="diseaseDelete" >
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td>
-                            <a href='#' class="btn btn-success" style="float:right; position:relative;">Edit</a> 
-                          </td>
+                          <td>{{$startup->founderName}}</td>
+                          <td>{{$startup->startupName}}</td>
+                          <td>{{$startup->companyName}}</td></td>
                           <td style="max-width:100px">
-                            <a href="#" class="btn btn-danger deletebtn" style="float:left; position:relative;"> DELETE </a>                          
+                            <a href="/deleteStartup/{{$startup->id}}" class="btn btn-danger deletebtn" style="float:left; position:relative;"> DELETE </a>                          
                           </td>
                         </tr>
+                        @endforeach
                      
                     </tbody>
                   </table>
@@ -222,6 +236,16 @@ https://templatemo.com/tm-507-victory
             log: function() { }
         };
     }
+    </script>
+    <script src="{{asset('js/sweetalert.js')}}"></script>
+    <script>
+     @if (session('status'))
+      swal({
+          title: '{{ session('status') }}',
+          icon: '{{ session('status_code') }}',
+          button: "OK",
+          });
+    @endif
     </script>
 </body>
 </html>

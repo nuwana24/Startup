@@ -54,11 +54,18 @@ https://templatemo.com/tm-507-victory
                     <ul class="nav navbar-nav">
                         <li><a id="nav-underline" href="/">Home</a></li>
                         <li><a id="nav-underline" href="/about">About</a></li>
-                        <li><a id="nav-underline" href="/explore">Explore</a></li>
-                        <li><a id="nav-underline" href="/partners">Partners</a></li>
+                        <li><a id="nav-underline" href="/startups">Startups</a></li>
+                        <li><a id="nav-underline" href="/mentors">Menotrs</a></li>
                         <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
                         <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="#">Log Out</a></li>
+                        <li>
+                            <a id="nav-underline" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                            </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                </form>
+                        </li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -82,7 +89,7 @@ https://templatemo.com/tm-507-victory
         <div class="container">
             <div class="row">
                 <div class="heading">
-                    <h2>Weekly Featured Food</h2>
+                    <h2>Menotors</h2>
                 </div>
             </div>
             <!-- <div class="row">
@@ -108,19 +115,32 @@ https://templatemo.com/tm-507-victory
             @endfor -->
 
          <div class="row">
-            @for ($i = 0; $i <= 4; $i++)
+            @foreach ($mentors as $mentor)
                  <div class="col-md-4">
                     <ul>
-                        <li class="booking-card" style= "background-image: url(img/maina.jpg)";>
+                        @if($mentor->profilePicturePath != null)
+                        <input type="hidden" value="{{$picture = $mentor->profilePicturePath}}">
+                        @else
+                        <input type="hidden" value="{{$picture = 'maina.jpg'}}">
+                        @endif
+                        <li class="booking-card" style= "background-image: url(img/{{$picture}})";>
                             <div class="book-container">
+                            @role('Entrepreneur')
                             <div class="content">
-                                <button class="btn">Request Meeting</button>
+                                <input type="hidden" value="{{$pendingAdminCount = App\Models\MeetingRequest::where('requested_user_id','=',Auth::user()->id)->where('mentor_id','=',$mentor->id)->where('status','=','pending by admin')->count();}}">
+                                <input type="hidden" value="{{$pendingMentorCount = App\Models\MeetingRequest::where('requested_user_id','=',Auth::user()->id)->where('mentor_id','=',$mentor->id)->where('status','=','pending by = mentor')->count();}}">
+                                @if($pendingAdminCount > 0 || $pendingMentorCount > 0)
+                                <a href="" class="btn" disabled> Already requested.</a>
+                                @else
+                                <a href="/requestMeeting/{{$mentor->id}}" class="btn"> Request Meeting.</a> 
+                                @endif                            
                             </div>
+                            @endrole
                             </div>
                             <div class="informations-container">
-                            <h2 class="title">Mahinda Rajapaksha</h2>
-                            <p class="sub-title"><strong>Electronic Engineering</strong></p>
-                            <p style="margin-bottom: 20px" class="sub-title">mahinda@gmail.com</p>
+                            <h2 class="title">{{$mentor->firstName}}&nbsp{{$mentor->lastName}}</h2>
+                            <p class="sub-title"><strong>{{$mentor->mentorCategory}}</strong></p>
+                            <p style="margin-bottom: 20px" class="sub-title">{{$mentor->email}}</p>
                            
                             <div class="more-information">
                                 <div class="info-and-date-container">
@@ -146,7 +166,7 @@ https://templatemo.com/tm-507-victory
                         </li>
                     </ul>
                  </div>
-            @endfor 
+            @endforeach 
         </div>
             
             
@@ -219,6 +239,16 @@ https://templatemo.com/tm-507-victory
             log: function() { }
         };
     }
+    </script>
+    <script src="{{asset('js/sweetalert.js')}}"></script>
+    <script>
+     @if (session('status'))
+      swal({
+          title: '{{ session('status') }}',
+          icon: '{{ session('status_code') }}',
+          button: "OK",
+          });
+    @endif
     </script>
 </body>
 </html>

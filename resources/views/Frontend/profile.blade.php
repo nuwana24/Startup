@@ -55,11 +55,18 @@ https://templatemo.com/tm-507-victory
                     <ul class="nav navbar-nav">
                         <li><a id="nav-underline" href="/">Home</a></li>
                         <li><a id="nav-underline" href="/about">About</a></li>
-                        <li><a id="nav-underline" href="/explore">Explore</a></li>
-                        <li><a id="nav-underline" href="/partners">Partners</a></li>
+                        <li><a id="nav-underline" href="/startups">Startups</a></li>
+                        <li><a id="nav-underline" href="/mentors">Menotrs</a></li>
                         <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
                         <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="#">Log Out</a></li>
+                        <li>
+                            <a id="nav-underline" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                            </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                </form>
+                        </li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -74,22 +81,43 @@ https://templatemo.com/tm-507-victory
   <div class="profile-nav col-md-3">
       <div class="panel">
           <div class="user-heading round">
-              <a href="#">
-                  <img src="img/maina.jpg" alt="">
-              </a>
-              <h1>Camila Smith</h1>
-              <h5>deydey@theEmail.com</h5>
+          @if(Auth::user()->profilePicturePath != null)
+                    <a href="#">
+                        <img src="img/{{Auth::user()->profilePicturePath}}" alt="">
+                    </a>
+                    @else
+                    <a href="#">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                    </a>
+        @endif
+              <h1>{{Auth::user()->firstName}}&nbsp{{Auth::user()->lastName}}</h1>
+              <h5>{{Auth::user()->email}}</h5>
           </div>
 
           <ul class="nav nav-pills nav-stacked" style="left:0%">
-              <li class="active"><a href="/profile"> <i class="fa fa-user"></i> Dashboard</a></li>
-              <li><a href="/mystartups"> <i class="fa fa-calendar"></i> My Startups </a></li>
-              <li><a href="/registerStartup"> <i class="fa fa-plus-square-o"></i> Register New Startup</a></li>
-              <li><a href="/editProfile"> <i class="fa fa-edit"></i> Edit profile</a></li>
-              <li><a href="/userManagement"> <i class="fa fa-users"></i> User Management</a></li>
-              <li><a href="/startupManagement"> <i class="fa fa-building"></i> Startup Managament</a></li>
-              <li><a href="/adminSessionManagement"> <i class="fa fa-meetup"></i> Session Requests</a></li>
-              <li><a href="/guestTalksTrainingsManagement"> <i class="fa fa-crosshairs"></i> Guest Talks / Trainings</a></li>
+          <li><a href="/profile"> <i class="fa fa-user"></i> Dashboard</a></li>
+                    @role('Entrepreneur')
+                    <li><a href="/mystartups"> <i class="fa fa-calendar"></i> My Startups </a></li>
+                    @endrole
+                    @role('Entrepreneur')
+                    <li><a href="/registerStartup"> <i class="fa fa-plus-square-o"></i> Register New Startup</a></li>
+                    @endrole
+                    <li><a href="/editProfile"> <i class="fa fa-edit"></i> Edit profile</a></li>
+                    @role('Admin')
+                    <li ><a href="/userManagement"> <i class="fa fa-users"></i> User Management</a></li>
+                    @endrole
+                    @role('Admin')
+                    <li><a href="/startupManagement"> <i class="fa fa-building"></i> Startup Managament</a></li>
+                    @endrole
+                    @role('Mentor')
+                    <li><a href="/getMeetingRequestsOfMentor"> <i class="fa fa-building"></i> Session Requests For Mentor</a></li>
+                    @endrole
+                    @role('Admin')
+                    <li  class="active"><a href="/adminSessionManagement"> <i class="fa fa-meetup"></i> Session Requests For Admin</a></li>
+                    @endrole
+                    @role('Admin')
+                    <li><a href="/guestTalksTrainingsManagement"> <i class="fa fa-crosshairs"></i> Guest Talks / Trainings</a></li>
+                    @endrole
           </ul>
       </div>
   </div>
@@ -106,34 +134,35 @@ https://templatemo.com/tm-507-victory
               
               <div class="row">
                   <div class="bio-row">
-                      <p><span>First Name </span>: Camila</p>
+                      <p><span>First Name </span>: {{$user->firstName}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Last Name </span>: Smith</p>
+                      <p><span>Last Name </span>: {{$user->lastName}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Email </span>: jsmith@flatlab.com</p>
+                      <p><span>Email </span>: {{$user->email}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Contact No</span>: 13 July 1983</p>
+                      <p><span>Contact No</span>: {{$user->telePhoneNumber}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Role </span>: Mentor</p>
+                      <p><span>Role </span>: {{ $user->roleName}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Category </span>: UI UX</p>
+                      <p><span>Category </span>: {{$user->mentorCategory}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>University</span>: SLIIT</p>
+                      <p><span>University</span>: {{$user->college}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Linkedin URL </span>: (12) 03 4567890</p>
+                      <p><span>Linkedin URL </span>: {{$user->linkedInUrl}}</p>
                   </div>
                   
               </div>
           </div>
       </div>
 
+      @hasanyrole('Entrepreneur|Mentor')
       <div class="profile-info col-md-12" style="padding-right:0px;padding-left:0px;">
       
         <div class="panel">
@@ -142,56 +171,77 @@ https://templatemo.com/tm-507-victory
             </div>
         </div>
       </div>
+      @endhasanyrole
+      @role('Entrepreneur')
       <div>
           <div class="row">
+              @foreach($requests as $request)
               <div class="col-md-12">
                   <div class="panel">
                       <div class="panel-body">
-                          <!-- <div class="bio-chart">
-                              <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="35" data-fgcolor="#e06b7d" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(224, 107, 125); padding: 0px; -webkit-appearance: none; background: none;"></div>
-                          </div> -->
                           <div class="bio-desk">
-                              <h4 class="red">Mr.Katin Putin</h4>
-                              <!-- <p>Date : 15 July</p>  -->
+                              <h4 class="red">{{App\Models\User::find($request->mentor_id)-> firstName}} &nbsp {{App\Models\User::find($request->mentor_id)-> lastName}}</h4>
+                              @if($request->status == 'pending by admin')
                               <p style="color: #ff8303;"><span style="color: grey";>Status </span>: Pending Approval from Admin</p>
-                                                            
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-12">
-                  <div class="panel">
-                      <div class="panel-body">
-                          <div class="bio-desk">
-                              <h4 class="red">Mr.Pissu Kanna</h4>
-                              <p style="color: #4CC5CD;"><span style="color: grey";>Status </span>: Pending Approval from Mentor</p>
-                                                            
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-12">
-                  <div class="panel">
-                      <div class="panel-body">
-                          <div class="bio-desk">
-                              <h4 class="red">Mr.Baiya Nayaka</h4>
-                              <p>Date : 15 July</p> 
-                              <p>Time : 4:00 PM</p> 
+                              @endif
+                              @if($request->status == 'rejected by admin')
+                              <p style="color: #ff0000;"><span style="color: red";>Status </span>: Rejected from Admin</p>
+                              @endif
+                              @if($request->status == 'pending by mentor')
+                              <p style="color: #ff8303;"><span style="color: grey";>Status </span>: Pending Approval from Mentor</p>
+                              @endif
+                              @if($request->status == 'rejected by mentor')
+                              <p style="color: #ff0000;"><span style="color: red";>Status </span>: Rejected from Mentor</p>
+                              @endif
+                              @if($request->status == 'approved')
+                              <p>Date:{{App\Models\MeetingSession::find($request->session_id)-> date}}</p> 
+                              <p>Time : {{App\Models\MeetingSession::find($request->session_id)-> time}}</p> 
                               <div style="display:inline-block">
-                                <!-- <p>Date : 15 July</p>  -->
                                 <p>Link</p> 
                               </div>
-                              <a>https://www.youtube.com/watch?v=hT_nvWreIhg&list=RDGMEMQ1dJ7wXfLlqCjwV0xfSNbA&index=11</a>
-                              <p style="color: #97be4b;"><span style="color: grey";>Status </span>: Approved</p>
+                              <a><u>{{App\Models\MeetingSession::find($request->session_id)-> sessionLink}}</u></a>
+                              <p style="color: #00ff00;"><span style="color: green";>Status </span>: Approved</p>
+                              @endif
+
                                                             
                           </div>
                       </div>
                   </div>
               </div>
+            @endforeach
               
               
           </div>
       </div>
+      @endrole
+
+      @role('Mentor')
+      <div>
+          <div class="row">
+              @foreach($mentorRequests as $mentorRequest)
+              <div class="col-md-12">
+                  <div class="panel">
+                      <div class="panel-body">
+                          <div class="bio-desk">
+                              
+                              <p>Date:{{App\Models\MeetingSession::find($mentorRequest->session_id)-> date}}</p> 
+                              <p>Time : {{App\Models\MeetingSession::find($mentorRequest->session_id)-> time}}</p> 
+                              <div style="display:inline-block">
+                                <p>Link</p> 
+                              </div>
+                              <a><u>{{App\Models\MeetingSession::find($mentorRequest->session_id)-> sessionLink}}</u></a>
+                    
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            @endforeach
+              
+              
+          </div>
+      </div>
+      @endrole
+
   </div>
 </div>
 </div>
@@ -264,6 +314,16 @@ https://templatemo.com/tm-507-victory
             log: function() { }
         };
     }
+    </script>
+    <script src="{{asset('js/sweetalert.js')}}"></script>
+    <script>
+     @if (session('status'))
+      swal({
+          title: '{{ session('status') }}',
+          icon: '{{ session('status_code') }}',
+          button: "OK",
+          });
+    @endif
     </script>
 </body>
 </html>

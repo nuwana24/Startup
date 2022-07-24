@@ -57,11 +57,18 @@ https://templatemo.com/tm-507-victory
                     <ul class="nav navbar-nav">
                         <li><a id="nav-underline" href="/">Home</a></li>
                         <li><a id="nav-underline" href="/about">About</a></li>
-                        <li><a id="nav-underline" href="/explore">Explore</a></li>
-                        <li><a id="nav-underline" href="/partners">Partners</a></li>
+                        <li><a id="nav-underline" href="/startups">Startups</a></li>
+                        <li><a id="nav-underline" href="/mentors">Menotrs</a></li>
                         <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
                         <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="#">Log Out</a></li>
+                        <li>
+                            <a id="nav-underline" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                            </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                </form>
+                        </li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -76,18 +83,43 @@ https://templatemo.com/tm-507-victory
   <div class="profile-nav col-md-3" >
       <div class="panel" >
           <div class="user-heading round">
-              <a href="#">
-                  <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
-              </a>
-              <h1>Camila Smith</h1>
-              <p>deydey@theEmail.com</p>
+             @if(Auth::user()->profilePicturePath != null)
+                    <a href="#">
+                        <img src="img/{{Auth::user()->profilePicturePath}}" alt="">
+                    </a>
+                    @else
+                    <a href="#">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                    </a>
+             @endif
+              <h1>{{Auth::user()->firstName}}&nbsp{{Auth::user()->lastName}}</h1>
+              <p>{{Auth::user()->email}}</p>
           </div>
 
           <ul class="nav nav-pills nav-stacked" style="left:0%">
-              <li ><a href="/profile"> <i class="fa fa-user"></i> Dashboard</a></li>
-              <li ><a href="/mystartups"> <i class="fa fa-calendar"></i> My Startups </a></li>
-              <li class="active"><a href="/registerStartup"> <i class="fa fa-plus-square-o"></i> Register New Startup</a></li>
-              <li><a href="/editProfile"> <i class="fa fa-edit"></i> Edit profile</a></li>
+          <li><a href="/profile"> <i class="fa fa-user"></i> Dashboard</a></li>
+                    @role('Entrepreneur')
+                    <li><a href="/mystartups"> <i class="fa fa-calendar"></i> My Startups </a></li>
+                    @endrole
+                    @role('Entrepreneur')
+                    <li><a href="/registerStartup"> <i class="fa fa-plus-square-o"></i> Register New Startup</a></li>
+                    @endrole
+                    <li><a href="/editProfile"> <i class="fa fa-edit"></i> Edit profile</a></li>
+                    @role('Admin')
+                    <li ><a href="/userManagement"> <i class="fa fa-users"></i> User Management</a></li>
+                    @endrole
+                    @role('Admin')
+                    <li><a href="/startupManagement"> <i class="fa fa-building"></i> Startup Managament</a></li>
+                    @endrole
+                    @role('Mentor')
+                    <li><a href="/getMeetingRequestsOfMentor"> <i class="fa fa-building"></i> Session Requests For Mentor</a></li>
+                    @endrole
+                    @role('Admin')
+                    <li  class="active"><a href="/adminSessionManagement"> <i class="fa fa-meetup"></i> Session Requests For Admin</a></li>
+                    @endrole
+                    @role('Admin')
+                    <li><a href="/guestTalksTrainingsManagement"> <i class="fa fa-crosshairs"></i> Guest Talks / Trainings</a></li>
+                    @endrole
           </ul>
       </div>
   </div>
@@ -104,13 +136,14 @@ https://templatemo.com/tm-507-victory
       <div>
           <div class="row">
             <div id="container2">
-                <form action="action_page.php">
+            <form  action="/createStartup" method="POST" enctype="multipart/form-data">
+                {{csrf_field()}}
                     <div class="row">
                     <div class="col-25">
                         <label for="fname">Startup Name</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="fname" name="firstname" placeholder="Startup Name..">
+                        <input type="text" id="fname" name="startupName" placeholder="Startup Name.." required>
                     </div>
                     </div>
                     <div class="row">
@@ -118,7 +151,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Tagline</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="lastname" placeholder="Tagline..">
+                        <input type="text" id="lname" name="tagline" placeholder="Tagline.." required>
                     </div>
                     </div>
                     <div class="row">
@@ -126,7 +159,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Company Logo</label>
                     </div>
                     <div class="col-75">
-                        <input style="float:left" type="file" id="myFile" name="filename">
+                        <input style="float:left" type="file" id="myFile" name="logo">
                     </div>
                     </div>
                     <div class="row">
@@ -134,7 +167,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Web URL</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="lastname" placeholder="Url..">
+                        <input type="text" id="lname" name="webUrl" placeholder="Url..">
                     </div>
                     </div>
                     <div class="row">
@@ -142,7 +175,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Telephone Number</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="lastname" placeholder="Number..">
+                        <input type="text" id="lname" name="telephone" placeholder="Number.." required>
                     </div>
                     </div>
                     <div class="row">
@@ -150,7 +183,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Company Address</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="lastname" placeholder="Address..">
+                        <input type="text" id="lname" name="companyAddress" placeholder="Address.." >
                     </div>
                     </div>
                     <div class="row">
@@ -158,7 +191,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Company Name (In Business Registration)</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="lastname" placeholder="Company Name..">
+                        <input type="text" id="lname" name="companyName" placeholder="Company Name.." required>
                     </div>
                     </div>
                     <div class="row">
@@ -166,7 +199,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Business Registration Number</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="lastname" placeholder="Business Registration Number..">
+                        <input type="text" id="lname" name="businessRegistrationNumber" placeholder="Business Registration Number.." required>
                     </div>
                     </div>
                     <div class="row">
@@ -174,7 +207,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Founded Date</label>
                     </div>
                     <div class="col-75">
-                        <input type="date" id="lname" name="lastname" placeholder="Company Name..">
+                        <input type="date" id="lname" name="foundedDate" placeholder="Company Name..">
                     </div>
                     </div>
                     <div class="row">
@@ -182,7 +215,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Startup Category</label>
                     </div>
                     <div class="col-75">
-                        <select id="country" name="category">
+                        <select id="country" name="startupCategory" required>
                             <option value="Agriculture / Agritech">Agriculture / Agritech</option>
                             <option value="AI">AI</option>
                             <option value="Arts and Culture">Arts and Culture</option>
@@ -212,7 +245,7 @@ https://templatemo.com/tm-507-victory
                         <label for="subject">Description</label>
                     </div>
                     <div class="col-75">
-                        <textarea id="subject" name="subject" placeholder="Write a Description.." style="height:100px"></textarea>
+                        <textarea id="subject" name="description" placeholder="Write a Description.." style="height:100px"></textarea>
                     </div>
                     </div>
                     <div class="row">
@@ -220,7 +253,7 @@ https://templatemo.com/tm-507-victory
                             <label for="lname">Number of Employees</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="lname" name="lastname" placeholder="Number of Employees..">
+                            <input type="number" id="lname" name="numberOfEmployees" placeholder="Number of Employees..">
                         </div>
                     </div>
                     <div class="row">
@@ -228,7 +261,7 @@ https://templatemo.com/tm-507-victory
                             <label for="lname">Founder Name</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="lname" name="lastname" placeholder="Founder Name...">
+                            <input type="text" id="lname" name="founderName" placeholder="Founder Name...">
                         </div>
                     </div>
                     <div class="row">
@@ -236,7 +269,7 @@ https://templatemo.com/tm-507-victory
                             <label for="lname">Founder Email</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="lname" name="lastname" placeholder="Founder Email..">
+                            <input type="text" id="lname" name="founderEmail" placeholder="Founder Email..">
                         </div>
                     </div>
                     <div class="row">
@@ -244,11 +277,10 @@ https://templatemo.com/tm-507-victory
                             <label for="lname">Founder Contact Number</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="lname" name="lastname" placeholder="Telephone Number..">
+                            <input type="text" id="lname" name="founderTelephone" placeholder="Telephone Number..">
                         </div>
                     </div>
                     <div class="row">
-                    <input id="" type="submit" value="Cancel">
                     <input id="" type="submit" value="Submit">
                     </div>
                 </form>
@@ -327,6 +359,16 @@ https://templatemo.com/tm-507-victory
             log: function() { }
         };
     }
+    </script>
+    <script src="{{asset('js/sweetalert.js')}}"></script>
+    <script>
+     @if (session('status'))
+      swal({
+          title: '{{ session('status') }}',
+          icon: '{{ session('status_code') }}',
+          button: "OK",
+          });
+    @endif
     </script>
 </body>
 </html>
