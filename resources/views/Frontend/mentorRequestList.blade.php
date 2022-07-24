@@ -25,7 +25,8 @@ https://templatemo.com/tm-507-victory
         <!-- <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css"> -->
 		
 		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="css/signup.css">
+		<link rel="stylesheet" href="css/profile.css">
+
 
         <link href="https://fonts.googleapis.com/css?family=Spectral:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
@@ -53,11 +54,19 @@ https://templatemo.com/tm-507-victory
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a id="nav-underline" href="/">Home</a></li>
-                        <li><a id="nav-underline" href="/welcome_about">About</a></li>
-                        <li><a id="nav-underline" href="/welcome_startups">Startups</a></li>
-                        <li><a id="nav-underline" href="/welcome_mentors">Mentors</a></li>
-                        <li><a id="nav-underline" href="/welcome_guest_talks">Guest Talks & Trainings</a></li>
-                        <li><a id="nav-underline" href="/signIn">Log In</a></li>
+                        <li><a id="nav-underline" href="/about">About</a></li>
+                        <li><a id="nav-underline" href="/startups">Startups</a></li>
+                        <li><a id="nav-underline" href="/mentors">Menotrs</a></li>
+                        <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
+                        <li><a id="nav-underline" href="/profile">Profile</a></li>
+                        <li>
+                            <a id="nav-underline" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                            </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                </form>
+                        </li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -66,49 +75,95 @@ https://templatemo.com/tm-507-victory
         </div>
         <!--/.container-->
     </div>
-    <div class="wrapper">
-			<div class="inner">
-				<div class="image-holder">
-					<img src="img/signup1.jpg" alt="">
-				</div>
-				<form method="POST" action="{{ route('login') }}">
-                       @csrf
-					<h3 style="margin-top:50px">Log In to Startup Support</h3>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippets bootdey">
+    <div class="row">
+        <div class="profile-nav col-md-3">
+            <div class="panel">
+                <div class="user-heading round">
+                    <a href="#">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                    </a>
+                    <h1>{{Auth::user()->firstName}}&nbsp{{Auth::user()->lastName}}</h1>
+                    <h5>{{Auth::user()->email}}</h5>
+                </div>
 
-                    @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                    @enderror
+                <ul class="nav nav-pills nav-stacked" style="left:0%">
+                <li><a href="/profile"> <i class="fa fa-user"></i> Dashboard</a></li>
+                    @role('Entrepreneur')
+                    <li><a href="/mystartups"> <i class="fa fa-calendar"></i> My Startups </a></li>
+                    @endrole
+                    @role('Entrepreneur')
+                    <li><a href="/registerStartup"> <i class="fa fa-plus-square-o"></i> Register New Startup</a></li>
+                    @endrole
+                    <li><a href="/editProfile"> <i class="fa fa-edit"></i> Edit profile</a></li>
+                    @role('Admin')
+                    <li ><a href="/userManagement"> <i class="fa fa-users"></i> User Management</a></li>
+                    @endrole
+                    @role('Admin')
+                    <li><a href="/startupManagement"> <i class="fa fa-building"></i> Startup Managament</a></li>
+                    @endrole
+                    @role('Mentor')
+                    <li><a href="/getMeetingRequestsOfMentor"> <i class="fa fa-building"></i> Session Requests For Mentor</a></li>
+                    @endrole
+                    @role('Admin')
+                    <li  class="active"><a href="/adminSessionManagement"> <i class="fa fa-meetup"></i> Session Requests For Admin</a></li>
+                    @endrole
+                    @role('Admin')
+                    <li><a href="/guestTalksTrainingsManagement"> <i class="fa fa-crosshairs"></i> Guest Talks / Trainings</a></li>
+                    @endrole
 
-                    @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                    @enderror
+                </ul>
+            </div>
+        </div>
 
-                    <div class="loginfield" style="margin-top:50px">
-						<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email" autofocus placeholder="User Email">
-                    </div>
-                    <div class="loginfield">
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
-                    </div>
-                    <div class="loginfield">
-                      <p>Dont have a account? </p><a class="logInHyper" style="color:#17c8f8; " href="/signup"> Sign Up</a>
-                    </div>
-						
-					
-					<button type="submit" style="margin-top:50px">Log In
-						<i class="zmdi zmdi-long-arrow-right"></i>
-                        {{ __('Login') }}
-					</button>
-
-				</form>
-				
-			</div>
-		</div>
-
-
+          <div class="col-md-9">
+            <div class="card" style="margin-top:40px">
+            <div class="panel-body bio-graph-info" style="background: #1494bb; color: white;">
+                <h1 style=" margin: 0 0 0px; text-align:center">Meeting requests to me</h1>
+            </div>
+              <div class="card-body" style="margin-top:30px">
+                <div class="table-responsive">
+                  <table id="dataTable" class="table">
+                    <thead class=" text-primary font-weight-bold" >
+                      <th>
+                        Requested User Name
+                      </th>
+                      <th>
+                        Email
+                      </th>
+                      <th>
+                        Role
+                      </th> 
+                      <th>
+                        
+                      </th>  
+                      <th>
+                        
+                      </th>  
+                    </thead>
+                    <tbody>
+                        @foreach($requests as $request)
+                        <tr>
+                          <td>{{App\Models\User::find($request->requested_user_id)-> firstName}} &nbsp {{App\Models\User::find($request->requested_user_id)-> lastName}}</td>
+                          <td>{{App\Models\User::find($request->requested_user_id)-> email}}</td>
+                          <td>{{App\Models\User::find($request->requested_user_id)-> roleName}}</td>
+                          <td>
+                            <a href='/getApproveRequestPage/{{$request->id}}' class="btn btn-success" style="float:right; position:relative;">Approve</a> 
+                          </td>
+                          <td style="max-width:100px">
+                            <a href="/rejectRequestByMentor/{{$request->id}}" class="btn btn-danger deletebtn" style="float:left; position:relative;"> Reject </a>                          
+                          </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>  
 <footer>
         <div class="container">
             <div class="row">
@@ -138,6 +193,10 @@ https://templatemo.com/tm-507-victory
 
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+
+
+
+
 
     <script type="text/javascript">
     $(document).ready(function() {

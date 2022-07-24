@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Startup;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class StartupController extends Controller
 {
@@ -52,7 +53,9 @@ class StartupController extends Controller
         $startup->founderTelephone = $request->input('founderTelephone');
         
         $startup->save();
-        return redirect('/mystartups');
+
+        Session::flash('status_code','success');
+        return redirect('/mystartups')->with('status','successfully registered a new startup!');
     }
 
     public function updateStartup(Request $request)
@@ -75,13 +78,17 @@ class StartupController extends Controller
         $startup->founderTelephone = $request->input('founderTelephone');
 
         $startup->update();
-        return redirect('/mystartups');
+
+        Session::flash('status_code','success');
+        return redirect('/mystartups')->with('status','successfully updated!');
     }
 
     public function deleteStartup($id)
     {
         $startup = Startup::find($id);
         $startup->delete();
-        return redirect('/startupManagement');
+
+        Session::flash('status_code','success');
+        return redirect('/startupManagement')->with('status','successfully deleted!');
     }
 }

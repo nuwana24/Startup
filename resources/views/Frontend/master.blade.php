@@ -565,5 +565,15 @@ https://templatemo.com/tm-507-victory
         };
     }
     </script>
+    <script src="{{asset('js/sweetalert.js')}}"></script>
+    <script>
+     @if (session('status'))
+      swal({
+          title: '{{ session('status') }}',
+          icon: '{{ session('status_code') }}',
+          button: "OK",
+          });
+    @endif
+    </script>
 </body>
 </html>

@@ -84,14 +84,29 @@ https://templatemo.com/tm-507-victory
           </div>
 
           <ul class="nav nav-pills nav-stacked" style="left:0%">
-              <li class="active"><a href="/profile"> <i class="fa fa-user"></i> Dashboard</a></li>
-              <li><a href="/mystartups"> <i class="fa fa-calendar"></i> My Startups </a></li>
-              <li><a href="/registerStartup"> <i class="fa fa-plus-square-o"></i> Register New Startup</a></li>
-              <li><a href="/editProfile"> <i class="fa fa-edit"></i> Edit profile</a></li>
-              <li><a href="/userManagement"> <i class="fa fa-users"></i> User Management</a></li>
-              <li><a href="/startupManagement"> <i class="fa fa-building"></i> Startup Managament</a></li>
-              <li><a href="/adminSessionManagement"> <i class="fa fa-meetup"></i> Session Requests</a></li>
-              <li><a href="/guestTalksTrainingsManagement"> <i class="fa fa-crosshairs"></i> Guest Talks / Trainings</a></li>
+                    <li><a href="/profile"> <i class="fa fa-user"></i> Dashboard</a></li>
+                    @role('Entrepreneur')
+                    <li><a href="/mystartups"> <i class="fa fa-calendar"></i> My Startups </a></li>
+                    @endrole
+                    @role('Entrepreneur')
+                    <li><a href="/registerStartup"> <i class="fa fa-plus-square-o"></i> Register New Startup</a></li>
+                    @endrole
+                    <li><a href="/editProfile"> <i class="fa fa-edit"></i> Edit profile</a></li>
+                    @role('Admin')
+                    <li ><a href="/userManagement"> <i class="fa fa-users"></i> User Management</a></li>
+                    @endrole
+                    @role('Admin')
+                    <li><a href="/startupManagement"> <i class="fa fa-building"></i> Startup Managament</a></li>
+                    @endrole
+                    @role('Mentor')
+                    <li><a href="/getMeetingRequestsOfMentor"> <i class="fa fa-building"></i> Session Requests For Mentor</a></li>
+                    @endrole
+                    @role('Admin')
+                    <li  class="active"><a href="/adminSessionManagement"> <i class="fa fa-meetup"></i> Session Requests For Admin</a></li>
+                    @endrole
+                    @role('Admin')
+                    <li><a href="/guestTalksTrainingsManagement"> <i class="fa fa-crosshairs"></i> Guest Talks / Trainings</a></li>
+                    @endrole
           </ul>
       </div>
   </div>
@@ -108,53 +123,46 @@ https://templatemo.com/tm-507-victory
               
               <div class="row">
                   <div class="bio-row">
-                      <p><span>Name </span>: Camila Smith</p>
+                      <p><span>Reuested User Name </span>: {{App\Models\User::find($request->requested_user_id)-> firstName}} &nbsp {{App\Models\User::find($request->requested_user_id)-> lastName}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Email </span>: jsmith@flatlab.com</p>
+                      <p><span>Reuested User Email </span>: {{App\Models\User::find($request->requested_user_id)-> email}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Contact No</span>: 0766876352</p>
+                      <p><span>Contact No</span>: {{App\Models\User::find($request->requested_user_id)-> telePhoneNumber}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>LinkedIn URL </span>: www.Hello.com/hello21</p>
+                      <p><span>LinkedIn URL </span>: {{App\Models\User::find($request->requested_user_id)-> linkedInUrl}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>University</span>: SLIIT</p>
+                      <p><span>University</span>:  {{App\Models\User::find($request->requested_user_id)-> college}}</p>
                   </div>
                   <div class="bio-row">
                       <p><span>Approval </span>: Admin Approved</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Message </span>:</p>
-                  </div>
-                  
-                  <div class="bio-row" style="width:100%; margin-top:-15px">
-                      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                  </div>
+                  </div> 
                   
               </div>
           </div>
       </div>
       <div class="row">
             <div id="container2" style="margin-top:0">
-                <form action="action_page.php">
                 <div class="row">
-                    <input class="btn-danger" style="margin-top:-20px" type="submit" value="Decline">
+                    <p>After Submitting the follwing form this, request will be considered as <strong>approved !</strong></p>
                 </div>
-                </form>
             </div>
           </div>   
       
       <div class="row">
             <div id="container2" style="margin-top:0">
-                <form action="action_page.php">                
+            <form  action="/approveRequest" method="POST">
+                {{csrf_field()}}  
+                <input type="hidden" name="request_id" value="{{$request->id}}">            
                     <div class="row">
                     <div class="col-25">
                         <label for="lname">Date</label>
                     </div>
                     <div class="col-75">
-                        <input type="date" id="lname" name="lastname" >
+                        <input type="date" id="date" name="date" required>
                     </div>
                     </div>
                     <div class="row">
@@ -162,7 +170,7 @@ https://templatemo.com/tm-507-victory
                         <label for="email">Time</label>
                     </div>
                     <div class="col-75">
-                        <input type="time" id="email" name="email" >
+                        <input type="time" id="time" name="time" required>
                     </div>
                     </div>
                     
@@ -171,7 +179,7 @@ https://templatemo.com/tm-507-victory
                         <label for="telephone">Meeting Link</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="email" name="email" >
+                        <input type="text" id="sessionLink" name="sessionLink" required>
                     </div>
                     </div>
                     
@@ -255,6 +263,16 @@ https://templatemo.com/tm-507-victory
             log: function() { }
         };
     }
+    </script>
+    <script src="{{asset('js/sweetalert.js')}}"></script>
+    <script>
+     @if (session('status'))
+      swal({
+          title: '{{ session('status') }}',
+          icon: '{{ session('status_code') }}',
+          button: "OK",
+          });
+    @endif
     </script>
 </body>
 </html>

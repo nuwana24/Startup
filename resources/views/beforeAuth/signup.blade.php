@@ -71,7 +71,8 @@ https://templatemo.com/tm-507-victory
 				<div class="image-holder">
 					<img src="img/signup2.jpg" alt="">
 				</div>
-				<form  action="/register" method="POST">
+                                         
+				<form action="/signupApplication" method="POST">
                 {{csrf_field()}}
 					<h3>Create Your Profile</h3>
 					<div class="form-row">
@@ -107,11 +108,8 @@ https://templatemo.com/tm-507-victory
                         <p>Already have a account? </p><a class="logInHyper" style="color:#17c8f8; " href="/signIn"> Log In</a>
                     </div>
 					<!-- <textarea name="" id="" placeholder="Message" class="form-control" style="height: 130px;"></textarea> -->
-					<button type="submit">Create
-						<i class="zmdi zmdi-long-arrow-right"></i>
-					</button>
-                    
-
+					<button type="submit">Create<i class="zmdi zmdi-long-arrow-right"></i></button>
+                    <a href="/test" class="btn btn-danger deletebtn"> HI</a> 
 				</form>
 				
 			</div>
@@ -217,6 +215,16 @@ https://templatemo.com/tm-507-victory
             log: function() { }
         };
     }
+    </script>
+    <script src="{{asset('js/sweetalert.js')}}"></script>
+    <script>
+     @if (session('status'))
+      swal({
+          title: '{{ session('status') }}',
+          icon: '{{ session('status_code') }}',
+          button: "OK",
+          });
+    @endif
     </script>
 </body>
 </html>

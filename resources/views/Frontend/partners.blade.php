@@ -89,7 +89,7 @@ https://templatemo.com/tm-507-victory
         <div class="container">
             <div class="row">
                 <div class="heading">
-                    <h2>Weekly Featured Food</h2>
+                    <h2>Menotors</h2>
                 </div>
             </div>
             <!-- <div class="row">
@@ -120,9 +120,17 @@ https://templatemo.com/tm-507-victory
                     <ul>
                         <li class="booking-card" style= "background-image: url(img/maina.jpg)";>
                             <div class="book-container">
+                            @role('Entrepreneur')
                             <div class="content">
-                                <button class="btn">Request Meeting</button>
+                                <input type="hidden" value="{{$pendingAdminCount = App\Models\MeetingRequest::where('requested_user_id','=',Auth::user()->id)->where('mentor_id','=',$mentor->id)->where('status','=','pending by admin')->count();}}">
+                                <input type="hidden" value="{{$pendingMentorCount = App\Models\MeetingRequest::where('requested_user_id','=',Auth::user()->id)->where('mentor_id','=',$mentor->id)->where('status','=','pending by = mentor')->count();}}">
+                                @if($pendingAdminCount > 0 || $pendingMentorCount > 0)
+                                <a href="" class="btn" disabled> Already requested.</a>
+                                @else
+                                <a href="/requestMeeting/{{$mentor->id}}" class="btn"> Request Meeting.</a> 
+                                @endif                            
                             </div>
+                            @endrole
                             </div>
                             <div class="informations-container">
                             <h2 class="title">{{$mentor->firstName}}&nbsp{{$mentor->lastName}}</h2>
@@ -226,6 +234,16 @@ https://templatemo.com/tm-507-victory
             log: function() { }
         };
     }
+    </script>
+    <script src="{{asset('js/sweetalert.js')}}"></script>
+    <script>
+     @if (session('status'))
+      swal({
+          title: '{{ session('status') }}',
+          icon: '{{ session('status_code') }}',
+          button: "OK",
+          });
+    @endif
     </script>
 </body>
 </html>
