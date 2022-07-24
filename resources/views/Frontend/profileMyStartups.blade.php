@@ -81,9 +81,15 @@ https://templatemo.com/tm-507-victory
   <div class="profile-nav col-md-3" >
       <div class="panel" >
           <div class="user-heading round">
-              <a href="#">
-                  <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
-              </a>
+            @if(Auth::user()->profilePicturePath != null)
+                    <a href="#">
+                        <img src="img/{{Auth::user()->profilePicturePath}}" alt="">
+                    </a>
+                    @else
+                    <a href="#">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                    </a>
+            @endif
               <h1>{{Auth::user()->firstName}}&nbsp{{Auth::user()->lastName}}</h1>
               <p>{{Auth::user()->email}}</p>
           </div>
@@ -132,7 +138,12 @@ https://templatemo.com/tm-507-victory
                     <div class="food-item panel">
                         <h2 style="text-align:center;padding-top:10px">{{$startup->companyName}}</h2>
                         <h4 style="text-align:center;margin-top:-10px">{{$startup->startupName}}</h4>
+                        @if($startup->logo != null)
+                        <img src="img/{{$startup->logo}}" alt="">
+                        @else
                         <img src="img/startup1.jpg" alt="">
+                        @endif
+                        
                         <div class="price" style="right:15px; ">{{$startup->startupCategory}}</div>
                         <div class="text-content">
                             <h4>Description:</h4>

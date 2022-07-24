@@ -51,6 +51,13 @@ class StartupController extends Controller
         $startup->founderName = $request->input('founderName');
         $startup->founderEmail = $request->input('founderEmail');
         $startup->founderTelephone = $request->input('founderTelephone');
+
+        if ($request->file('logo')){
+            $startup->logo = $request->file('logo')->getClientOriginalName();
+            $image = $request->file('logo');
+            $name = $image->getClientOriginalName();
+            $image->move('img', $name);
+        }   
         
         $startup->save();
 
@@ -76,6 +83,13 @@ class StartupController extends Controller
         $startup->founderName = $request->input('founderName');
         $startup->founderEmail = $request->input('founderEmail');
         $startup->founderTelephone = $request->input('founderTelephone');
+
+        if ($request->file('logo')){
+            $startup->logo = $request->file('logo')->getClientOriginalName();
+            $image = $request->file('logo');
+            $name = $image->getClientOriginalName();
+            $image->move('img', $name);
+        }  
 
         $startup->update();
 

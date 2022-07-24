@@ -118,7 +118,12 @@ https://templatemo.com/tm-507-victory
             @foreach ($mentors as $mentor)
                  <div class="col-md-4">
                     <ul>
-                        <li class="booking-card" style= "background-image: url(img/maina.jpg)";>
+                        @if($mentor->profilePicturePath != null)
+                        <input type="hidden" value="{{$picture = $mentor->profilePicturePath}}">
+                        @else
+                        <input type="hidden" value="{{$picture = 'maina.jpg'}}">
+                        @endif
+                        <li class="booking-card" style= "background-image: url(img/{{$picture}})";>
                             <div class="book-container">
                             @role('Entrepreneur')
                             <div class="content">

@@ -75,13 +75,19 @@ https://templatemo.com/tm-507-victory
 <div class="row">
   <div class="profile-nav col-md-3">
       <div class="panel">
-          <div class="user-heading round">
-              <a href="#">
-                  <img src="img/maina.jpg" alt="">
-              </a>
-              <h1>Camila Smith</h1>
-              <h5>deydey@theEmail.com</h5>
-          </div>
+      <div class="user-heading round">
+                    @if(Auth::user()->profilePicturePath != null)
+                    <a href="#">
+                        <img src="img/{{Auth::user()->profilePicturePath}}" alt="">
+                    </a>
+                    @else
+                    <a href="#">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                    </a>
+                    @endif
+                    <h1>{{Auth::user()->firstName}}&nbsp{{Auth::user()->lastName}}</h1>
+                    <h5>{{Auth::user()->email}}</h5>
+        </div>
 
           <ul class="nav nav-pills nav-stacked" style="left:0%">
                     <li><a href="/profile"> <i class="fa fa-user"></i> Dashboard</a></li>

@@ -81,9 +81,15 @@ https://templatemo.com/tm-507-victory
         <div class="profile-nav col-md-3">
             <div class="panel">
                 <div class="user-heading round">
+                     @if(Auth::user()->profilePicturePath != null)
+                    <a href="#">
+                        <img src="img/{{Auth::user()->profilePicturePath}}" alt="">
+                    </a>
+                    @else
                     <a href="#">
                         <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
                     </a>
+                    @endif
                     <h1>{{Auth::user()->firstName}}&nbsp{{Auth::user()->lastName}}</h1>
                     <h5>{{Auth::user()->email}}</h5>
                 </div>

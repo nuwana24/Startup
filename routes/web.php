@@ -33,49 +33,49 @@ Route::get('/createRole',[App\Http\Controllers\UserController::class,'createRole
 
 //Routes related Auth
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
 //Routes related to About
-Route::get('/about',[App\Http\Controllers\AboutController::class,'about'])->name('about');
+Route::get('/about',[App\Http\Controllers\AboutController::class,'about'])->name('about')->middleware('auth');
 
 //Routes related to Menu
-Route::get('/menu',[App\Http\Controllers\MenuController::class,'menu'])->name('menu');
+Route::get('/menu',[App\Http\Controllers\MenuController::class,'menu'])->name('menu')->middleware('auth');
 
 //Roues related to startups
-Route::get('/startups',[App\Http\Controllers\StartupController::class,'startups'])->name('startups');
-Route::get('/mystartups',[App\Http\Controllers\StartupController::class,'mystartups'])->name('mystartups');
-Route::get('/startupedit/{id}',[App\Http\Controllers\StartupController::class,'startupedit'])->name('startupedit');
-Route::get('/registerStartup',[App\Http\Controllers\StartupController::class,'registerStartup'])->name('registerStartup');
-Route::get('/startupManagement',[App\Http\Controllers\StartupController::class,'startupManagement'])->name('startupManagement');
-Route::post('/createStartup',[App\Http\Controllers\StartupController::class,'createStartup'])->name('createStartup');
-Route::put('/updateStartup',[App\Http\Controllers\StartupController::class,'updateStartup'])->name('updateStartup');
-Route::get('/deleteStartup/{id}',[App\Http\Controllers\StartupController::class,'deleteStartup'])->name('deleteStartup');
+Route::get('/startups',[App\Http\Controllers\StartupController::class,'startups'])->name('startups')->middleware('auth');
+Route::get('/mystartups',[App\Http\Controllers\StartupController::class,'mystartups'])->name('mystartups')->middleware('auth');
+Route::get('/startupedit/{id}',[App\Http\Controllers\StartupController::class,'startupedit'])->name('startupedit')->middleware('auth');
+Route::get('/registerStartup',[App\Http\Controllers\StartupController::class,'registerStartup'])->name('registerStartup')->middleware('auth');
+Route::get('/startupManagement',[App\Http\Controllers\StartupController::class,'startupManagement'])->name('startupManagement')->middleware('auth');
+Route::post('/createStartup',[App\Http\Controllers\StartupController::class,'createStartup'])->name('createStartup')->middleware('auth');
+Route::put('/updateStartup',[App\Http\Controllers\StartupController::class,'updateStartup'])->name('updateStartup')->middleware('auth');
+Route::get('/deleteStartup/{id}',[App\Http\Controllers\StartupController::class,'deleteStartup'])->name('deleteStartup')->middleware('auth');
 
 //Routes related to mentors
-Route::get('/mentors',[App\Http\Controllers\MentorController::class,'mentors'])->name('mentors');
+Route::get('/mentors',[App\Http\Controllers\MentorController::class,'mentors'])->name('mentors')->middleware('auth');
 
 //Routes related guest talks
-Route::get('/guestTalksTrainings',[App\Http\Controllers\GuestTalkController::class,'guestTalksTrainings'])->name('guestTalksTrainings');
-Route::get('/guestTalksTrainingsManagement',[App\Http\Controllers\GuestTalkController::class,'guestTalksTrainingsManagement'])->name('guestTalksTrainingsManagement');
-Route::get('/deleteGuestTalk/{id}',[App\Http\Controllers\GuestTalkController::class,'deleteGuestTalk'])->name('deleteGuestTalk');
-Route::post('/addGuestTalk',[App\Http\Controllers\GuestTalkController::class,'addGuestTalk'])->name('addGuestTalk');
+Route::get('/guestTalksTrainings',[App\Http\Controllers\GuestTalkController::class,'guestTalksTrainings'])->name('guestTalksTrainings')->middleware('auth');
+Route::get('/guestTalksTrainingsManagement',[App\Http\Controllers\GuestTalkController::class,'guestTalksTrainingsManagement'])->name('guestTalksTrainingsManagement')->middleware('auth');
+Route::get('/deleteGuestTalk/{id}',[App\Http\Controllers\GuestTalkController::class,'deleteGuestTalk'])->name('deleteGuestTalk')->middleware('auth');
+Route::post('/addGuestTalk',[App\Http\Controllers\GuestTalkController::class,'addGuestTalk'])->name('addGuestTalk')->middleware('auth');
 
 //Routes related to user management
-Route::get('/profile',[App\Http\Controllers\UserController::class,'profile'])->name('profile');
-Route::get('/editProfile',[App\Http\Controllers\UserController::class,'editProfile'])->name('editProfile');
-Route::get('/userManagement',[App\Http\Controllers\UserController::class,'userManagement'])->name('userManagement');
-Route::put('/updateUser',[App\Http\Controllers\UserController::class,'updateUser'])->name('updateUser');
-Route::get('/deleteUser/{id}',[App\Http\Controllers\UserController::class,'deleteUser'])->name('deleteUser');
+Route::get('/profile',[App\Http\Controllers\UserController::class,'profile'])->name('profile')->middleware('auth');
+Route::get('/editProfile',[App\Http\Controllers\UserController::class,'editProfile'])->name('editProfile')->middleware('auth');
+Route::get('/userManagement',[App\Http\Controllers\UserController::class,'userManagement'])->name('userManagement')->middleware('auth');
+Route::put('/updateUser',[App\Http\Controllers\UserController::class,'updateUser'])->name('updateUser')->middleware('auth');
+Route::get('/deleteUser/{id}',[App\Http\Controllers\UserController::class,'deleteUser'])->name('deleteUser')->middleware('auth');
 
 //Routes related to sessions
-Route::get('/adminSessionManagement',[App\Http\Controllers\SessionController::class,'adminSessionManagement'])->name('adminSessionManagement');
-Route::get('/requestMeeting/{id}',[App\Http\Controllers\SessionController::class,'requestMeeting'])->name('requestMeeting');
-Route::get('/rejectRequestByAdmin/{id}',[App\Http\Controllers\SessionController::class,'rejectRequestByAdmin'])->name('rejectRequestByAdmin');
-Route::get('/forwardRequestToMentor/{id}',[App\Http\Controllers\SessionController::class,'forwardRequestToMentor'])->name('forwardRequestToMentor');
-Route::get('/rejectRequestByMentor/{id}',[App\Http\Controllers\SessionController::class,'rejectRequestByMentor'])->name('rejectRequestByMentor');
-Route::get('/getMeetingRequestsOfMentor',[App\Http\Controllers\SessionController::class,'getMeetingRequestsOfMentor'])->name('getMeetingRequestsOfMentor');
-Route::get('/getApproveRequestPage/{id}',[App\Http\Controllers\SessionController::class,'getApproveRequestPage'])->name('getApproveRequestPage');
-Route::post('/approveRequest',[App\Http\Controllers\SessionController::class,'approveRequest'])->name('approveRequest');
+Route::get('/adminSessionManagement',[App\Http\Controllers\SessionController::class,'adminSessionManagement'])->name('adminSessionManagement')->middleware('auth');
+Route::get('/requestMeeting/{id}',[App\Http\Controllers\SessionController::class,'requestMeeting'])->name('requestMeeting')->middleware('auth');
+Route::get('/rejectRequestByAdmin/{id}',[App\Http\Controllers\SessionController::class,'rejectRequestByAdmin'])->name('rejectRequestByAdmin')->middleware('auth');
+Route::get('/forwardRequestToMentor/{id}',[App\Http\Controllers\SessionController::class,'forwardRequestToMentor'])->name('forwardRequestToMentor')->middleware('auth');
+Route::get('/rejectRequestByMentor/{id}',[App\Http\Controllers\SessionController::class,'rejectRequestByMentor'])->name('rejectRequestByMentor')->middleware('auth');
+Route::get('/getMeetingRequestsOfMentor',[App\Http\Controllers\SessionController::class,'getMeetingRequestsOfMentor'])->name('getMeetingRequestsOfMentor')->middleware('auth');
+Route::get('/getApproveRequestPage/{id}',[App\Http\Controllers\SessionController::class,'getApproveRequestPage'])->name('getApproveRequestPage')->middleware('auth');
+Route::post('/approveRequest',[App\Http\Controllers\SessionController::class,'approveRequest'])->name('approveRequest')->middleware('auth');
 
 
 //Route::get('/explore','App\Http\Controllers\ExploreController@explore');

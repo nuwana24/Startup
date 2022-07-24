@@ -97,7 +97,12 @@ https://templatemo.com/tm-507-victory
             <div class="col-md-4">
                     <div class="food-item">
                         <h2>{{$guestTalk->eventName}}</h2>
+                        @if($guestTalk->eventImage != null)
+                        <img src="img/{{$guestTalk->eventImage}}" alt="">
+                        @else
                         <img src="img/breakfast_item.jpg" alt="">
+                        @endif
+                        
                         <div class="text-content">
                             <h4>Description:</h4>
                             <p>{{$guestTalk->description}}.</p>

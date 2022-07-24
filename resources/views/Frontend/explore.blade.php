@@ -98,7 +98,11 @@ https://templatemo.com/tm-507-victory
                     <div class="food-item">
                         <h2>{{$startup->tagline}}</h2>
                         <h4>{{$startup->startupName}}</h4>
+                        @if($startup->logo != null)
+                        <img src="img/{{$startup->logo}}" alt="">
+                        @else
                         <img src="img/breakfast_item.jpg" alt="">
+                        @endif
                         <div class="price">{{$startup->startupCategory}}</div>
                         <div class="text-content">
                             <h4>Description:</h4>

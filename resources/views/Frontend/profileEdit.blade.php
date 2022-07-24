@@ -83,9 +83,15 @@ https://templatemo.com/tm-507-victory
   <div class="profile-nav col-md-3" >
       <div class="panel" >
           <div class="user-heading round">
-              <a href="#">
-                  <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
-              </a>
+          @if(Auth::user()->profilePicturePath != null)
+                    <a href="#">
+                        <img src="img/{{Auth::user()->profilePicturePath}}" alt="">
+                    </a>
+                    @else
+                    <a href="#">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                    </a>
+            @endif
               <h1>{{Auth::user()->firstName}}&nbsp{{Auth::user()->lastName}}</h1>
               <p>{{Auth::user()->email}}</p>
           </div>
@@ -130,7 +136,7 @@ https://templatemo.com/tm-507-victory
       <div>
           <div class="row">
             <div id="container2">
-            <form action="/updateUser" method="POST">
+            <form action="/updateUser" method="POST" enctype="multipart/form-data">
                        {{csrf_field()}}
                        {{method_field('PUT')}}
                 <input type="hidden" name="user_id" value="{{$user->id}}">
@@ -197,13 +203,11 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Profile Picture</label>
                     </div>
                     <div class="col-75">
-                        <input style="float:left" type="file" id="myFile" name="filename">
+                        <input style="float:left" type="file" id="myFile" name="profilePicturePath">
                     </div>
                     </div>
-                    
-                    
                     <div class="row">
-                    <inputbut id="" value="Cancel">
+
                     <input id="" type="submit" value="Submit">
                     </div>
                 </form>

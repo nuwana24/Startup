@@ -36,6 +36,13 @@ class GuestTalkController extends Controller
         $guestTalk->time = $request->input('time');
         $guestTalk->eventLink = $request->input('eventLink');
         $guestTalk->description = $request->input('description');
+
+        if ($request->file('eventImage')){
+            $guestTalk->eventImage = $request->file('eventImage')->getClientOriginalName();
+            $image = $request->file('eventImage');
+            $name = $image->getClientOriginalName();
+            $image->move('img', $name);
+        }  
         $guestTalk->save();
         
         Session::flash('status_code','success');

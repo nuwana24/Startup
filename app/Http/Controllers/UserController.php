@@ -46,17 +46,15 @@ class UserController extends Controller
         $user->linkedInUrl = $request['linkedInUrl'];
         $user->college = $request['college'];
         $user->roleName = $request['roleName'];
-        if($request['roleName'] == 'Mentor')
-        {
-            $user->mentorCategory = $request['mentorCategory'];
-        }
-        if ($request->file('image')){
-            $item->profilePicturePath = $request->file('profilePicturePath')->getClientOriginalName();
+        $user->mentorCategory = $request['mentorCategory'];
+
+        if ($request->file('profilePicturePath')){
+            $user->profilePicturePath = $request->file('profilePicturePath')->getClientOriginalName();
             $image = $request->file('profilePicturePath');
             $name = $image->getClientOriginalName();
             $image->move('img', $name);
         }    
-         
+
        $user->save();
        $user->assignRole($request['roleName']);
 
@@ -83,6 +81,13 @@ class UserController extends Controller
         $user->telePhoneNumber = $request['telePhoneNumber'];
         $user->linkedInUrl = $request['linkedInUrl'];
         $user->college = $request['college'];
+
+        if ($request->file('profilePicturePath')){
+            $user->profilePicturePath = $request->file('profilePicturePath')->getClientOriginalName();
+            $image = $request->file('profilePicturePath');
+            $name = $image->getClientOriginalName();
+            $image->move('img', $name);
+        }    
 
         $user->update();
 

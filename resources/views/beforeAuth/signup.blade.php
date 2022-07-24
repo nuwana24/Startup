@@ -72,7 +72,7 @@ https://templatemo.com/tm-507-victory
 					<img src="img/signup2.jpg" alt="">
 				</div>
                                          
-				<form action="/signupApplication" method="POST">
+				<form action="/signupApplication" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
 					<h3>Create Your Profile</h3>
 					<div class="form-row">
@@ -100,7 +100,7 @@ https://templatemo.com/tm-507-victory
 					</div>
                     <div class="form-row">
                         <!-- <input type="text" class="form-control" name="category" id="category" placeholder="Enter Your Category"> -->
-                        <input type="file" name="image" class="form-control" placeholder="Post Image">
+                        <input type="file" name="profilePicturePath" class="form-control" placeholder="Post Image">
                         <label for="file">Upload a Picture</label>
 
                     </div>
