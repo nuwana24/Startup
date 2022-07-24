@@ -52,7 +52,7 @@ https://templatemo.com/tm-507-victory
                 <!--/.navbar-header-->
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a id="nav-underline" href="/">Home</a></li>
+                    <li><a id="nav-underline" href="/">Home</a></li>
                         <li><a id="nav-underline" href="/welcome_about">About</a></li>
                         <li><a id="nav-underline" href="/welcome_startups">Startups</a></li>
                         <li><a id="nav-underline" href="/welcome_mentors">Mentors</a></li>
@@ -81,7 +81,7 @@ https://templatemo.com/tm-507-victory
         <div class="container">
             <div class="row">
                 <div class="heading">
-                    <h2>Weekly Featured Food</h2>
+                    <h2>Menotors</h2>
                 </div>
             </div>
             <!-- <div class="row">
@@ -107,19 +107,23 @@ https://templatemo.com/tm-507-victory
             @endfor -->
 
          <div class="row">
-            @for ($i = 0; $i <= 4; $i++)
+            @foreach ($mentors as $mentor)
                  <div class="col-md-4">
                     <ul>
-                        <li class="booking-card" style= "background-image: url(img/maina.jpg)";>
+                        @if($mentor->profilePicturePath != null)
+                        <input type="hidden" value="{{$picture = $mentor->profilePicturePath}}">
+                        @else
+                        <input type="hidden" value="{{$picture = 'maina.jpg'}}">
+                        @endif
+                        <li class="booking-card" style= "background-image: url(img/{{$picture}})";>
                             <div class="book-container">
-                            <div class="content">
-                                <button class="btn">Request Meeting</button>
+                            <div class="content">                          
                             </div>
                             </div>
                             <div class="informations-container">
-                            <h2 class="title">Mahinda Rajapaksha</h2>
-                            <p class="sub-title"><strong>Electronic Engineering</strong></p>
-                            <p style="margin-bottom: 20px" class="sub-title">mahinda@gmail.com</p>
+                            <h2 class="title">{{$mentor->firstName}}&nbsp{{$mentor->lastName}}</h2>
+                            <p class="sub-title"><strong>{{$mentor->mentorCategory}}</strong></p>
+                            <p style="margin-bottom: 20px" class="sub-title">{{$mentor->email}}</p>
                            
                             <div class="more-information">
                                 <div class="info-and-date-container">
@@ -145,7 +149,7 @@ https://templatemo.com/tm-507-victory
                         </li>
                     </ul>
                  </div>
-            @endfor 
+            @endforeach 
         </div>
             
             
@@ -218,6 +222,16 @@ https://templatemo.com/tm-507-victory
             log: function() { }
         };
     }
+    </script>
+    <script src="{{asset('js/sweetalert.js')}}"></script>
+    <script>
+     @if (session('status'))
+      swal({
+          title: '{{ session('status') }}',
+          icon: '{{ session('status_code') }}',
+          button: "OK",
+          });
+    @endif
     </script>
 </body>
 </html>

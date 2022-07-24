@@ -85,35 +85,39 @@ https://templatemo.com/tm-507-victory
                 </div>
             </div>
             <div class="row">
-            @for ($i = 0; $i <= 4; $i++)
+            @foreach($startups as $startup)
             <div class="col-md-4">
                     <div class="food-item">
-                        <h2>12moon</h2>
-                        <h4>Strategic Digital Solutions</h4>
+                        <h2>{{$startup->tagline}}</h2>
+                        <h4>{{$startup->startupName}}</h4>
+                        @if($startup->logo != null)
+                        <img src="img/{{$startup->logo}}" alt="">
+                        @else
                         <img src="img/breakfast_item.jpg" alt="">
-                        <div class="price">UI/UX</div>
+                        @endif
+                        <div class="price">{{$startup->startupCategory}}</div>
                         <div class="text-content">
                             <h4>Description:</h4>
-                            <p>12moon is a web design company that focuses on creating beautiful, conversion base websites.</p>
+                            <p>{{$startup->description}}.</p>
                         </div>
                       
                         <div class="text-content">
                             <h4>Founder:</h4>
-                            <p>Mahinda Kahandagama</p>
-                            <p>mahinda@gmail.com</p>
-                            <p>+94119119119</p>
+                            <p>{{$startup->founderName}}</p>
+                            <p>{{$startup->founderEmail}}</p>
+                            <p>{{$startup->founderTelephone}}</p>
                         </div>
                         <div class="text-content">
                             <h4>Founded Date:</h4>
-                            <p>2022-06-24</p>
+                            <p>{{$startup->foundedDate}}</p>
                         </div>
                         <div class="text-content">
                             <h4>Web URL:</h4>
-                            <a href="https://www.youtube.com/">https://www.youtube.com/</a>
+                            <a href="{{$startup->webUrl}}">{{$startup->webUrl}}</a>
                         </div>
                     </div>
                 </div>
-            @endfor
+            @endforeach
 
                 
                 <!-- <div class="col-md-4">

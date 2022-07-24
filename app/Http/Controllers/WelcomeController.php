@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\GuestTalk;
+use App\Models\User;
+use App\Models\Startup;
 
 class WelcomeController extends Controller
 {
@@ -29,17 +32,20 @@ class WelcomeController extends Controller
 
     public function welcome_startups()
     {
-        return view('beforeAuth.explore');
+        $startups = Startup::all();
+        return view('beforeAuth.explore')->with('startups',$startups);;
     }
 
     public function welcome_mentors()
     {
-        return view('beforeAuth.partners');
+        $mentors = User::Where('roleName','=','Mentor')->get();
+        return view('beforeAuth.partners')->with('mentors',$mentors);;
     }
 
     public function welcome_guest_talks()
     {
-        return view('beforeAuth.guestTalksTrainings');
+        $guestTalks = GuestTalk::all();
+        return view('beforeAuth.guestTalksTrainings')->with('guestTalks',$guestTalks);
     }
 
 }
