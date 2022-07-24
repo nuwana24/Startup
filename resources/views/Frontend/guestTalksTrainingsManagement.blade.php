@@ -140,7 +140,7 @@ https://templatemo.com/tm-507-victory
                         <label for="fname">Event Name</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="eventName" name="eventName" >
+                        <input type="text" id="eventName" name="eventName" required>
                     </div>
                     </div>
                     <div class="row">
@@ -157,7 +157,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Date</label>
                     </div>
                     <div class="col-75">
-                        <input type="date" id="date" name="date" >
+                        <input type="date" id="date" name="date" required>
                     </div>
                     </div>
                     <div class="row">
@@ -165,7 +165,7 @@ https://templatemo.com/tm-507-victory
                         <label for="email">Time</label>
                     </div>
                     <div class="col-75">
-                        <input type="time" id="time" name="time" >
+                        <input type="time" id="time" name="time" required>
                     </div>
                     </div>
                     
@@ -174,7 +174,7 @@ https://templatemo.com/tm-507-victory
                         <label for="telephone">Meeting Link</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="eventLink" name="eventLink" >
+                        <input type="text" id="eventLink" name="eventLink" required>
                     </div>
                     </div>
                     <div class="row">

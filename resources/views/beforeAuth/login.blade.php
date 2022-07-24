@@ -98,9 +98,8 @@ https://templatemo.com/tm-507-victory
                     </div>
 						
 					
-					<button type="submit" style="margin-top:50px">Log In
+					<button type="submit" style="margin-top:50px">{{ __('Login') }}
 						<i class="zmdi zmdi-long-arrow-right"></i>
-                        {{ __('Login') }}
 					</button>
 
 				</form>

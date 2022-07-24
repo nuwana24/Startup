@@ -146,7 +146,7 @@ https://templatemo.com/tm-507-victory
                     </div>
                     
                     <div class="col-75">
-                        <input type="text" id="fname" name="firstName" value="{{$user->firstName}}">
+                        <input type="text" id="fname" name="firstName" value="{{$user->firstName}}" required>
                     </div>
                     </div>
                     <div class="row">
@@ -154,7 +154,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Last Name</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="lastName" value="{{$user->lastName}}">
+                        <input type="text" id="lname" name="lastName" value="{{$user->lastName}}" required>
                     </div>
                     </div>
                     <div class="row">
@@ -162,7 +162,7 @@ https://templatemo.com/tm-507-victory
                         <label for="email">Email</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="email" name="email" value="{{$user->email}}">
+                        <input type="text" id="email" name="email" value="{{$user->email}}" required>
                     </div>
                     </div>
                     
@@ -171,7 +171,7 @@ https://templatemo.com/tm-507-victory
                         <label for="telephone">Telephone Number</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="telephone" name="telePhoneNumber" value="{{$user->telePhoneNumber}}">
+                        <input type="text" id="telephone" name="telePhoneNumber" value="{{$user->telePhoneNumber}}" required>
                     </div>
                     </div>
                     <div class="row">

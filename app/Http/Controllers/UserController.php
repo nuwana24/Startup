@@ -36,6 +36,12 @@ class UserController extends Controller
 
     public function signupApplication(Request $request)
     {
+        $existingUserCount = User::Where('email','=',$request['email'])->count();
+        if($existingUserCount > 0)
+        {
+            Session::flash('status_code','error');
+            return redirect('/signup')->with('status','Enterd email is already exisiting');
+        }
         $user = new User();
         $user->name = $request['firstName'];
         $user->email = $request['email'];

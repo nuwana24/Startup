@@ -143,7 +143,7 @@ https://templatemo.com/tm-507-victory
                         <label for="fname">Startup Name</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="fname" name="startupName" placeholder="Startup Name..">
+                        <input type="text" id="fname" name="startupName" placeholder="Startup Name.." required>
                     </div>
                     </div>
                     <div class="row">
@@ -151,7 +151,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Tagline</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="tagline" placeholder="Tagline..">
+                        <input type="text" id="lname" name="tagline" placeholder="Tagline.." required>
                     </div>
                     </div>
                     <div class="row">
@@ -175,7 +175,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Telephone Number</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="telephone" placeholder="Number..">
+                        <input type="text" id="lname" name="telephone" placeholder="Number.." required>
                     </div>
                     </div>
                     <div class="row">
@@ -183,7 +183,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Company Address</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="companyAddress" placeholder="Address..">
+                        <input type="text" id="lname" name="companyAddress" placeholder="Address.." >
                     </div>
                     </div>
                     <div class="row">
@@ -191,7 +191,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Company Name (In Business Registration)</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="companyName" placeholder="Company Name..">
+                        <input type="text" id="lname" name="companyName" placeholder="Company Name.." required>
                     </div>
                     </div>
                     <div class="row">
@@ -199,7 +199,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Business Registration Number</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="businessRegistrationNumber" placeholder="Business Registration Number..">
+                        <input type="text" id="lname" name="businessRegistrationNumber" placeholder="Business Registration Number.." required>
                     </div>
                     </div>
                     <div class="row">
@@ -215,7 +215,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Startup Category</label>
                     </div>
                     <div class="col-75">
-                        <select id="country" name="startupCategory">
+                        <select id="country" name="startupCategory" required>
                             <option value="Agriculture / Agritech">Agriculture / Agritech</option>
                             <option value="AI">AI</option>
                             <option value="Arts and Culture">Arts and Culture</option>
@@ -281,7 +281,6 @@ https://templatemo.com/tm-507-victory
                         </div>
                     </div>
                     <div class="row">
-                    <input id="" value="Cancel">
                     <input id="" type="submit" value="Submit">
                     </div>
                 </form>

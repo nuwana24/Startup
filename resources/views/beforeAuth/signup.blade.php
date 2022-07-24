@@ -76,17 +76,17 @@ https://templatemo.com/tm-507-victory
                 {{csrf_field()}}
 					<h3>Create Your Profile</h3>
 					<div class="form-row">
-						<input type="text" name="firstName" class="form-control" placeholder="First Name">
-						<input type="text" name="lastName" class="form-control" placeholder="Last Name">
+						<input type="text" name="firstName" class="form-control" placeholder="First Name" required>
+						<input type="text" name="lastName" class="form-control" placeholder="Last Name" required>
 					</div>
                     <div class="form-row">
-						<input type="text" name="email" class="form-control" placeholder="Email">
-						<input type="password" name="password" class="form-control" placeholder="Password">
+						<input type="text" name="email" class="form-control" placeholder="Email" required>
+						<input type="password" name="password" class="form-control" placeholder="Password" required>
 					</div>
 					<div class="form-row">
-						<input type="text" name="telePhoneNumber" class="form-control" placeholder="Contact Number">
+						<input type="text" name="telePhoneNumber" class="form-control" placeholder="Contact Number" required>
 						<div class="form-holder">
-							<select name="roleName" id="role" class="form-control">
+							<select name="roleName" id="role" class="form-control" required>
 								<option value="" disabled selected>Choose Your Role</option>
 								<option value="Entrepreneur">Entrepreneur</option>
 								<option value="Mentor">Mentor</option>
@@ -99,9 +99,8 @@ https://templatemo.com/tm-507-victory
 						<input type="text" name="college" class="form-control" placeholder="University/College">
 					</div>
                     <div class="form-row">
-                        <!-- <input type="text" class="form-control" name="category" id="category" placeholder="Enter Your Category"> -->
+                        <input type="text" class="form-control" name="mentorCategory" id="mentorCategory" placeholder="Enter Your Prefered Category">
                         <input type="file" name="profilePicturePath" class="form-control" placeholder="Post Image">
-                        <label for="file">Upload a Picture</label>
 
                     </div>
                     <div class="form-row ">
@@ -109,7 +108,6 @@ https://templatemo.com/tm-507-victory
                     </div>
 					<!-- <textarea name="" id="" placeholder="Message" class="form-control" style="height: 130px;"></textarea> -->
 					<button type="submit">Create<i class="zmdi zmdi-long-arrow-right"></i></button>
-                    <a href="/test" class="btn btn-danger deletebtn"> HI</a> 
 				</form>
 				
 			</div>
