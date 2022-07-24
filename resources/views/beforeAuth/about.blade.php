@@ -52,12 +52,12 @@ https://templatemo.com/tm-507-victory
                 <!--/.navbar-header-->
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a id="nav-underline" href="/">Home</a></li>
-                        <li><a id="nav-underline" href="/about">About</a></li>
-                        <li><a id="nav-underline" href="/explore">Explore</a></li>
-                        <li><a id="nav-underline" href="/partners">Partners</a></li>
-                        <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
-                        <li><a id="nav-underline" href="/login">Log In</a></li>
+                    <li><a id="nav-underline" href="/">Home</a></li>
+                        <li><a id="nav-underline" href="/welcome_about">About</a></li>
+                        <li><a id="nav-underline" href="/welcome_startups">Startups</a></li>
+                        <li><a id="nav-underline" href="/welcome_mentors">Mentors</a></li>
+                        <li><a id="nav-underline" href="/welcome_guest_talks">Guest Talks & Trainings</a></li>
+                        <li><a id="nav-underline" href="/signIn">Log In</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->

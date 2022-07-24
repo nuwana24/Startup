@@ -55,11 +55,18 @@ https://templatemo.com/tm-507-victory
                     <ul class="nav navbar-nav">
                         <li><a id="nav-underline" href="/">Home</a></li>
                         <li><a id="nav-underline" href="/about">About</a></li>
-                        <li><a id="nav-underline" href="/explore">Explore</a></li>
-                        <li><a id="nav-underline" href="/partners">Partners</a></li>
+                        <li><a id="nav-underline" href="/startups">Startups</a></li>
+                        <li><a id="nav-underline" href="/mentors">Menotrs</a></li>
                         <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
                         <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="#">Log Out</a></li>
+                        <li>
+                            <a id="nav-underline" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                            </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                </form>
+                        </li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -77,8 +84,8 @@ https://templatemo.com/tm-507-victory
               <a href="#">
                   <img src="img/maina.jpg" alt="">
               </a>
-              <h1>Camila Smith</h1>
-              <h5>deydey@theEmail.com</h5>
+              <h1>{{Auth::user()->firstName}}&nbsp{{Auth::user()->lastName}}</h1>
+              <h5>{{Auth::user()->email}}</h5>
           </div>
 
           <ul class="nav nav-pills nav-stacked" style="left:0%">
@@ -106,28 +113,28 @@ https://templatemo.com/tm-507-victory
               
               <div class="row">
                   <div class="bio-row">
-                      <p><span>First Name </span>: Camila</p>
+                      <p><span>First Name </span>: {{$user->firstName}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Last Name </span>: Smith</p>
+                      <p><span>Last Name </span>: {{$user->lastName}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Email </span>: jsmith@flatlab.com</p>
+                      <p><span>Email </span>: {{$user->email}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Contact No</span>: 13 July 1983</p>
+                      <p><span>Contact No</span>: {{$user->telePhoneNumber}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Role </span>: Mentor</p>
+                      <p><span>Role </span>: {{ $user->roleName}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Category </span>: UI UX</p>
+                      <p><span>Category </span>: {{$user->mentorCategory}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>University</span>: SLIIT</p>
+                      <p><span>University</span>: {{$user->college}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Linkedin URL </span>: (12) 03 4567890</p>
+                      <p><span>Linkedin URL </span>: {{$user->linkedInUrl}}</p>
                   </div>
                   
               </div>

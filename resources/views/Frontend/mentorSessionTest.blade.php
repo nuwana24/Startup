@@ -19,13 +19,16 @@ https://templatemo.com/tm-507-victory
         <link rel="stylesheet" href="css/owl-carousel.css">
         <link rel="stylesheet" href="css/templatemo-style.css">
         <link rel="stylesheet" href="css/navdrop.css">
+        <link rel="stylesheet" href="css/form.css">
+
 
         <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
         <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
         <!-- <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css"> -->
 		
 		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="css/signup.css">
+		<link rel="stylesheet" href="css/profile.css">
+
 
         <link href="https://fonts.googleapis.com/css?family=Spectral:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
@@ -57,7 +60,8 @@ https://templatemo.com/tm-507-victory
                         <li><a id="nav-underline" href="/explore">Explore</a></li>
                         <li><a id="nav-underline" href="/partners">Partners</a></li>
                         <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
-                        <li><a id="nav-underline" href="/login">Log In</a></li>
+                        <li><a id="nav-underline" href="/profile">Profile</a></li>
+                        <li><a id="nav-underline" href="#">Log Out</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -66,93 +70,122 @@ https://templatemo.com/tm-507-victory
         </div>
         <!--/.container-->
     </div>
-    <section class="page-heading">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Partners</h1>
-                    <p>Findout more information on our mentors who are the backbone of our community</p>
-                </div>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippets bootdey">
+<div class="row">
+  <div class="profile-nav col-md-3">
+      <div class="panel">
+          <div class="user-heading round">
+              <a href="#">
+                  <img src="img/maina.jpg" alt="">
+              </a>
+              <h1>Camila Smith</h1>
+              <h5>deydey@theEmail.com</h5>
+          </div>
+
+          <ul class="nav nav-pills nav-stacked" style="left:0%">
+              <li class="active"><a href="/profile"> <i class="fa fa-user"></i> Dashboard</a></li>
+              <li><a href="/mystartups"> <i class="fa fa-calendar"></i> My Startups </a></li>
+              <li><a href="/registerStartup"> <i class="fa fa-plus-square-o"></i> Register New Startup</a></li>
+              <li><a href="/editProfile"> <i class="fa fa-edit"></i> Edit profile</a></li>
+              <li><a href="/userManagement"> <i class="fa fa-users"></i> User Management</a></li>
+              <li><a href="/startupManagement"> <i class="fa fa-building"></i> Startup Managament</a></li>
+              <li><a href="/adminSessionManagement"> <i class="fa fa-meetup"></i> Session Requests</a></li>
+              <li><a href="/guestTalksTrainingsManagement"> <i class="fa fa-crosshairs"></i> Guest Talks / Trainings</a></li>
+          </ul>
+      </div>
+  </div>
+  <div class="profile-info col-md-9" id="dark-backgound">
+      
+      <div class="panel">
+          <!-- <div class="bio-graph-heading">
+              Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ispum. Aliquam ac magna metus.
+          </div> -->
+          <div class="panel-body bio-graph-info" style="background: #1494bb; color: white;">
+                <h1 style=" margin: 0 0 0px; text-align:center">Meeting Details</h1>
             </div>
-        </div>
-    </section>
-            
-    <section class="featured-food">
-        <div class="container">
-            <div class="row">
-                <div class="heading">
-                    <h2>Weekly Featured Food</h2>
+          <div class="panel-body bio-graph-info">
+              
+              <div class="row">
+                  <div class="bio-row">
+                      <p><span>Name </span>: Camila Smith</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Email </span>: jsmith@flatlab.com</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Contact No</span>: 0766876352</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>LinkedIn URL </span>: www.Hello.com/hello21</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>University</span>: SLIIT</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Approval </span>: Admin Approved</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Message </span>:</p>
+                  </div>
+                  
+                  <div class="bio-row" style="width:100%; margin-top:-15px">
+                      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+      <div class="row">
+            <div id="container2" style="margin-top:0">
+                <form action="action_page.php">
+                <div class="row">
+                    <input class="btn-danger" style="margin-top:-20px" type="submit" value="Decline">
                 </div>
+                </form>
             </div>
-            <!-- <div class="row">
-            @for ($i = 0; $i <= 4; $i++)
-                 <div class="col-md-6">
-                    <div class="blog-post">
-                        <img src="img/blog_post_01.jpg" alt="">
-                        <div class="date">26 Oct 2020</div>
-                        <div class="right-content">
-                            <h4>Mahinda Rajapaksha</h4>
-                            <h5>Category</h5>
-                            <span>UI/UX</span>
-                            <h5>University/College</h5>
-                            <span>UI/UX</span>
-                            <h5>LinkedIn URL</h5>
-                            <span>www.youtube.com</span>
-                            <div class="text-button">
-                                <a href="#">Continue Reading</a>
-                            </div>
-                        </div>
+          </div>   
+      
+      <div class="row">
+            <div id="container2" style="margin-top:0">
+                <form action="action_page.php">                
+                    <div class="row">
+                    <div class="col-25">
+                        <label for="lname">Date</label>
                     </div>
-                </div>
-            @endfor -->
-
-         <div class="row">
-            @for ($i = 0; $i <= 4; $i++)
-                 <div class="col-md-4">
-                    <ul>
-                        <li class="booking-card" style= "background-image: url(img/maina.jpg)";>
-                            <div class="book-container">
-                            <div class="content">
-                                <button class="btn">Request Meeting</button>
-                            </div>
-                            </div>
-                            <div class="informations-container">
-                            <h2 class="title">Mahinda Rajapaksha</h2>
-                            <p class="sub-title"><strong>Electronic Engineering</strong></p>
-                            <p style="margin-bottom: 20px" class="sub-title">mahinda@gmail.com</p>
-                           
-                            <div class="more-information">
-                                <div class="info-and-date-container">
-                                <div class="box info">
-                                    <svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24">
-                                    <path fill="currentColor" d="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218" />
-                                </svg>
-                                    <p>Rating</p>
-                                    <p>4.8 / 5.0</p>
-                                </div>
-                                <div class="box date">
-                                    <svg class="icon" style="width:24px;height:24px" viewBox="0 0 24 24" stroke="#1494bb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                                    <circle cx="12" cy="12" r="9" />
-                                    <path d="M12,3 C 8,3 8,21 12,21 C 16,21 16,3 12,3"/>
-                                    <path d="M3,12 C 3,8 21,8 21,12 C 21,16 3,16 3,12"/>
-                        </svg>
-                                    <p>Samedi 1er février 2020</p>
-                                </div>
-                                </div>
-                                <p class="disclaimer">Lorem ipsum dolor sit amet consectetur, </p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                 </div>
-            @endfor 
-        </div>
-            
-            
-            
-        </div>
-    </section>
-
+                    <div class="col-75">
+                        <input type="date" id="lname" name="lastname" >
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-25">
+                        <label for="email">Time</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="time" id="email" name="email" >
+                    </div>
+                    </div>
+                    
+                    <div class="row">
+                    <div class="col-25">
+                        <label for="telephone">Meeting Link</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="email" name="email" >
+                    </div>
+                    </div>
+                    
+                    
+                    <div class="row">
+                    <input id="" type="submit" value="Approve">
+                    </div>
+                </form>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
 <footer>
         <div class="container">
             <div class="row">
@@ -182,6 +215,10 @@ https://templatemo.com/tm-507-victory
 
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+
+
+
+
 
     <script type="text/javascript">
     $(document).ready(function() {

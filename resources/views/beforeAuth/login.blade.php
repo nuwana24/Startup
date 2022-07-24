@@ -38,7 +38,7 @@ https://templatemo.com/tm-507-victory
 <body>
     <div class="header">
         <div class="container">
-        <img id="header-image"src="img/newlogo.png" href="#" width="150" height="120">
+            <img id="header-image"src="img/newlogo.png" href="#" width="150" height="120">
             <hr>
             <nav class="navbar navbar-inverse" role="navigation">
                 <div class="navbar-header">
@@ -53,11 +53,11 @@ https://templatemo.com/tm-507-victory
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a id="nav-underline" href="/">Home</a></li>
-                        <li><a id="nav-underline" href="/about">About</a></li>
-                        <li><a id="nav-underline" href="/explore">Explore</a></li>
-                        <li><a id="nav-underline" href="/partners">Partners</a></li>
-                        <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
-                        <li><a id="nav-underline" href="/login">Log In</a></li>
+                        <li><a id="nav-underline" href="/welcome_about">About</a></li>
+                        <li><a id="nav-underline" href="/welcome_startups">Startups</a></li>
+                        <li><a id="nav-underline" href="/welcome_mentors">Mentors</a></li>
+                        <li><a id="nav-underline" href="/welcome_guest_talks">Guest Talks & Trainings</a></li>
+                        <li><a id="nav-underline" href="/signIn">Log In</a></li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -69,53 +69,44 @@ https://templatemo.com/tm-507-victory
     <div class="wrapper">
 			<div class="inner">
 				<div class="image-holder">
-					<img src="img/signup2.jpg" alt="">
+					<img src="img/signup1.jpg" alt="">
 				</div>
-				<form action="">
-					<h3>Create Your Profile</h3>
-					<div class="form-row">
-						<input type="text" class="form-control" placeholder="First Name">
-						<input type="text" class="form-control" placeholder="Last Name">
-					</div>
-                    <div class="form-row">
-						<input type="text" class="form-control" placeholder="Email">
-						<input type="text" class="form-control" placeholder="Password">
-					</div>
-					<div class="form-row">
-						<input type="text" class="form-control" placeholder="Contact Number">
-						<div class="form-holder">
-							<select name="role" id="role" class="form-control">
-								<option value="" disabled selected>Choose Your Role</option>
-								<option value="entrepreneur">Entrepreneur</option>
-								<option value="mentor">Mentor</option>
-							</select>
-							<i class="zmdi zmdi-chevron-down"></i>
-						</div>
-					</div>
-                    <div class="form-row">
-						<input type="text" class="form-control" placeholder="LinkedIn URL">
-						<input type="text" class="form-control" placeholder="University/College">
-					</div>
-                    <div class="form-row">
-                        <!-- <input type="text" class="form-control" name="category" id="category" placeholder="Enter Your Category"> -->
-                        <input type="file" name="file" id="file" class="myPicture" />
-                        <label for="file">Upload a Picture</label>
+				<form method="POST" action="{{ route('login') }}">
+                       @csrf
+					<h3 style="margin-top:50px">Log In to Startup Support</h3>
 
+                    @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                    @enderror
+
+                    @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                    @enderror
+
+                    <div class="loginfield" style="margin-top:50px">
+						<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email" autofocus placeholder="User Email">
                     </div>
-                    <div class="form-row ">
-                        <p>Already have a account? </p><a class="logInHyper" style="color:#17c8f8; " href="/login"> Log In</a>
+                    <div class="loginfield">
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
                     </div>
-					<!-- <textarea name="" id="" placeholder="Message" class="form-control" style="height: 130px;"></textarea> -->
-					<button>Create
+                    <div class="loginfield">
+                      <p>Dont have a account? </p><a class="logInHyper" style="color:#17c8f8; " href="/signup"> Sign Up</a>
+                    </div>
+						
+					
+					<button type="submit" style="margin-top:50px">Log In
 						<i class="zmdi zmdi-long-arrow-right"></i>
+                        {{ __('Login') }}
 					</button>
-                    
 
 				</form>
 				
 			</div>
 		</div>
-
 
 
 <footer>
@@ -147,39 +138,6 @@ https://templatemo.com/tm-507-victory
 
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-
-
-    <script type="text/javascript">
-    var role = document.getElementById("role");
-    var category = document.getElementById("category");
-
-    role.addEventListener("change", function(){
-    //Update this to your logic...
-    if(role.value === "mentor"){
-        category.disabled = true;
-        
-    }
-    });
-
-    <script type="text/javascript">
-    $(document).ready(function()
-      {
-        var navItems = $('.admin-menu li > a');
-        var navListItems = $('.admin-menu li');
-        var allWells = $('.admin-content');
-        var allWellsExceptFirst = $('.admin-content:not(:first)');
-        allWellsExceptFirst.hide();
-        navItems.click(function(e)
-        {
-            e.preventDefault();
-            navListItems.removeClass('active');
-            $(this).closest('li').addClass('active');
-            allWells.hide();
-            var target = $(this).attr('data-target-id');
-            $('#' + target).show();
-        });
-        });
-    </script>
 
     <script type="text/javascript">
     $(document).ready(function() {

@@ -57,11 +57,18 @@ https://templatemo.com/tm-507-victory
                     <ul class="nav navbar-nav">
                         <li><a id="nav-underline" href="/">Home</a></li>
                         <li><a id="nav-underline" href="/about">About</a></li>
-                        <li><a id="nav-underline" href="/explore">Explore</a></li>
-                        <li><a id="nav-underline" href="/partners">Partners</a></li>
+                        <li><a id="nav-underline" href="/startups">Startups</a></li>
+                        <li><a id="nav-underline" href="/mentors">Menotrs</a></li>
                         <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
                         <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="#">Log Out</a></li>
+                        <li>
+                            <a id="nav-underline" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                            </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                </form>
+                        </li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -79,8 +86,8 @@ https://templatemo.com/tm-507-victory
               <a href="#">
                   <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
               </a>
-              <h1>Camila Smith</h1>
-              <p>deydey@theEmail.com</p>
+              <h1>{{Auth::user()->firstName}}&nbsp{{Auth::user()->lastName}}</h1>
+              <p>{{Auth::user()->email}}</p>
           </div>
 
           <ul class="nav nav-pills nav-stacked" style="left:0%">
@@ -104,13 +111,17 @@ https://templatemo.com/tm-507-victory
       <div>
           <div class="row">
             <div id="container2">
-                <form action="action_page.php">
+            <form action="/updateUser" method="POST">
+                       {{csrf_field()}}
+                       {{method_field('PUT')}}
+                <input type="hidden" name="user_id" value="{{$user->id}}">
                     <div class="row">
                     <div class="col-25">
                         <label for="fname">First Name</label>
                     </div>
+                    
                     <div class="col-75">
-                        <input type="text" id="fname" name="firstname" >
+                        <input type="text" id="fname" name="firstName" value="{{$user->firstName}}">
                     </div>
                     </div>
                     <div class="row">
@@ -118,7 +129,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Last Name</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="lastname" >
+                        <input type="text" id="lname" name="lastName" value="{{$user->lastName}}">
                     </div>
                     </div>
                     <div class="row">
@@ -126,7 +137,7 @@ https://templatemo.com/tm-507-victory
                         <label for="email">Email</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="email" name="email" >
+                        <input type="text" id="email" name="email" value="{{$user->email}}">
                     </div>
                     </div>
                     
@@ -135,7 +146,7 @@ https://templatemo.com/tm-507-victory
                         <label for="telephone">Telephone Number</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="telephone" name="telephone" >
+                        <input type="text" id="telephone" name="telePhoneNumber" value="{{$user->telePhoneNumber}}">
                     </div>
                     </div>
                     <div class="row">
@@ -143,7 +154,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">Role</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="lastname" >
+                        <input type="text" id="lname" name="roleName" value="{{$user->roleName}}" readonly>
                     </div>
                     </div>
                     <div class="row">
@@ -151,7 +162,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">LinkedIn URL</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="lastname" >
+                        <input type="text" id="lname" name="linkedInUrl" value="{{$user->linkedInUrl}}">
                     </div>
                     </div>
                     <div class="row">
@@ -159,7 +170,7 @@ https://templatemo.com/tm-507-victory
                         <label for="lname">University/College</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="lname" name="lastname" >
+                        <input type="text" id="lname" name="college" value="{{$user->college}}">
                     </div>
                     </div>
                     <div class="row">
@@ -173,7 +184,7 @@ https://templatemo.com/tm-507-victory
                     
                     
                     <div class="row">
-                    <input id="" type="submit" value="Cancel">
+                    <inputbut id="" value="Cancel">
                     <input id="" type="submit" value="Submit">
                     </div>
                 </form>

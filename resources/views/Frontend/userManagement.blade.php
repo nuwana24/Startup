@@ -55,11 +55,18 @@ https://templatemo.com/tm-507-victory
                     <ul class="nav navbar-nav">
                         <li><a id="nav-underline" href="/">Home</a></li>
                         <li><a id="nav-underline" href="/about">About</a></li>
-                        <li><a id="nav-underline" href="/explore">Explore</a></li>
-                        <li><a id="nav-underline" href="/partners">Partners</a></li>
+                        <li><a id="nav-underline" href="/startups">Startups</a></li>
+                        <li><a id="nav-underline" href="/mentors">Menotrs</a></li>
                         <li><a id="nav-underline" href="/guestTalksTrainings">Guest Talks & Trainings</a></li>
                         <li><a id="nav-underline" href="/profile">Profile</a></li>
-                        <li><a id="nav-underline" href="#">Log Out</a></li>
+                        <li>
+                            <a id="nav-underline" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                            </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                </form>
+                        </li>
                     </ul>
                 </div>
                 <!--/.navbar-collapse-->
@@ -77,8 +84,8 @@ https://templatemo.com/tm-507-victory
                     <a href="#">
                         <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
                     </a>
-                    <h1>Camila Smith</h1>
-                    <h5>deydey@theEmail.com</h5>
+                    <h1>{{Auth::user()->firstName}}&nbsp{{Auth::user()->lastName}}</h1>
+                    <h5>{{Auth::user()->email}}</h5>
                 </div>
 
                 <ul class="nav nav-pills nav-stacked" style="left:0%">

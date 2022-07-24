@@ -19,6 +19,8 @@ https://templatemo.com/tm-507-victory
         <link rel="stylesheet" href="css/owl-carousel.css">
         <link rel="stylesheet" href="css/templatemo-style.css">
         <link rel="stylesheet" href="css/navdrop.css">
+        <link rel="stylesheet" href="css/form.css">
+
 
         <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
         <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -98,14 +100,80 @@ https://templatemo.com/tm-507-victory
           <div class="col-md-9">
             <div class="card" style="margin-top:40px">
             <div class="panel-body bio-graph-info" style="background: #1494bb; color: white;">
-                <h1 style=" margin: 0 0 0px; text-align:center">User Management</h1>
+                <h1 style=" margin: 0 0 0px; text-align:center">Add New Event</h1>
             </div>
-              <div class="card-body" style="margin-top:30px">
+            </div>
+            <div class="row">
+            <div id="container2" style="margin-top:0">
+                <form action="action_page.php">
+                    <div class="row">
+                    <div class="col-25">
+                        <label for="fname">Event Name</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="fname" name="firstname" >
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-25">
+                        <label for="fname">Image</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="file" name="file" id="file" class="myPicture" />
+                        <label for="file">Upload a Picture</label>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-25">
+                        <label for="lname">Date</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="date" id="lname" name="lastname" >
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-25">
+                        <label for="email">Time</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="time" id="email" name="email" >
+                    </div>
+                    </div>
+                    
+                    <div class="row">
+                    <div class="col-25">
+                        <label for="telephone">Meeting Link</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="telephone" name="telephone" >
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-25">
+                        <label for="lname">Description</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="lname" name="lastname" >
+                    </div>
+                    </div>
+                    
+                    <div class="row">
+                    <input id="" type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+          </div>
+
+          <div class="card" >
+            <div class="panel-body bio-graph-info" style="background: #1494bb; color: white;">
+                <h1 style=" margin: 0 0 0px; text-align:center">Current Events</h1>
+            </div>
+          </div>
+          <div class="card-body" style="margin-top:30px">
                 <div class="table-responsive">
                   <table id="dataTable" class="table">
                     <thead class=" text-primary font-weight-bold" >
                       <th></th>
-
                       <th>
                         Name
                       </th>
@@ -121,11 +189,9 @@ https://templatemo.com/tm-507-victory
                       <th>
                         Telephone
                       </th>  
-                      <th>
-                        
+                      <th>                        
                       </th>  
-                      <th>
-                        
+                      <th>                       
                       </th>  
                     </thead>
                     <tbody>
@@ -137,19 +203,18 @@ https://templatemo.com/tm-507-victory
                           <td></td>
                           <td></td>
                           <td></td>
-                          <td>
+                          <!-- <td>
                             <a href='#' class="btn btn-success" style="float:right; position:relative;">Edit</a> 
-                          </td>
+                          </td> -->
                           <td style="max-width:100px">
-                            <a href="#" class="btn btn-danger deletebtn" style="float:left; position:relative;"> DELETE </a>                          
+                            <a href="#" class="btn btn-danger deletebtn" style="float:right; position:relative;"> DELETE </a>                          
                           </td>
-                        </tr>
-                     
+                        </tr>                    
                     </tbody>
                   </table>
                 </div>
               </div>
-            </div>
+
           </div>
         </div>
   </div>  
